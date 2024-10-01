@@ -19,9 +19,12 @@ return (
             <button className='nav-button'>Jobs</button>
             <button className='nav-button'>Companies</button>
             <button className='nav-button'>About Us</button>
+            <h1> Login </h1>
+            <button className='signup'>Signup <img src={Paper} alt='Paper Airplane' className='button-img' />
+            </button>
             </div>
         <div className="text">Your search for the next dream job is over 🚀 </div>
-        <div className = "text">Create an acciynt or sign in. By continuing, you agree to our </div>
+        <div className = "text">Create an account or sign in. By continuing, you agree to our </div>
         <button className='text-button'>Terms of Use</button>
         <div className = "text"> and acknowledge our</div>
         <button className='text-button'>Privacy Policy</button>
