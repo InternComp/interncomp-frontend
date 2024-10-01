@@ -7,7 +7,7 @@ import People from '../Assets/Icons/People.png'
 import Logo2 from '../Assets/Icons/Logo2.png'
 import Google from '../Assets/Icons/Google.png'
 import Paper from '../Assets/Icons/Paper.png'
-import User from '../Assets/Icons/User.png'
+
 
 const LoginPage = () => {
 return (
@@ -50,7 +50,7 @@ return (
         </div>
   
         <div className="text">Enter Email</div>
-        <input type="email" placeholder="Username@mail.com" className="email-input" />
+        <input type="email" placeholder = "Username@mail.com" className="email-input" />
         <button className="sign-in">Continue with email</button>
   
         <button className="start-search">Start Searching →</button>
@@ -59,7 +59,6 @@ return (
         <img src={People} alt="People" className="image" />
       </div>
     </div>
-
     
   </div>
   
