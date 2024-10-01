@@ -10,6 +10,16 @@
 
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+  }
+
+
 .header {
     display: flex;
     align-items: center;
@@ -47,6 +57,7 @@
   }
 
   .text-button {
+    display: flex;
     background-color: transparent;
     border: none;
     font-size: 16px;
@@ -96,3 +107,44 @@
     font-size: 14px;
     text-transform: uppercase;
   }
+
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    
+  }
+
+  .signin {
+    display: flex;
+  }
+
+  .lightbulb-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lightbulb-section img {
+    width: 150px;
+    height: auto;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .people {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 3;
+}
+  .people img {
+    width: 300px;
+    height: auto;
+  }
+ 
