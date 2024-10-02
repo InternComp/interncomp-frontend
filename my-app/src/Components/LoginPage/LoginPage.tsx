@@ -54,7 +54,7 @@ return (
           <hr className="line" />
         </div>
   
-        <div className="text">Enter Email</div>
+        <div className="email-text">Enter Email</div>
         <input type="email" placeholder = "Username@mail.com" className="email-input" />
         <button className="sign-in">Continue with email</button>
   

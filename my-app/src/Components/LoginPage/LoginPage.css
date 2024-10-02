@@ -76,6 +76,11 @@
   .text-button:hover {
     color: darkblue;
   }
+
+  .email-text{
+    font-size: inherit;
+    font-weight: bold;
+  }
   
   .sign-in {
     display: flex;
