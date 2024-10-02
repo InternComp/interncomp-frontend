@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     
 }
@@ -60,7 +60,11 @@
 
 .text {
     margin-top: 20px;
-    font-size: 28px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 200px;
+    width: 100%;
   }
 
   .text-button {
@@ -87,7 +91,7 @@
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
-    border: 2px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
     padding: 10px 20px;
     color: rgb(0, 0, 0);
     font-size: 18px;
@@ -95,6 +99,8 @@
     border-radius: 5px;
     margin-top: 20px;
     font-weight: bold;
+    width: 100%;
+    height: auto;
   }
   
   .button-img {
@@ -111,18 +117,28 @@
     margin: 20px 0;
     width: 100%;
   }
+
+  .header-line{
+    border: none;
+    border-top: 1px solid black;
+    width: 100%;
+    margin: 0 10px;
+    font-weight: bold;
+  }
   
   .line {
     border: none;
-    border-top: 1px solid #e0e0e0c5;
-    width: 40%;
+    border-top: 1px solid #858585c5;
+    width: 100%;
     margin: 0 10px;
+    font-weight: bold;
   }
   
   .or {
-    color: #e0e0e0c5;
+    color: #858585c5;
     font-size: 14px;
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   .image {
@@ -153,6 +169,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
   }
 
   .people {
@@ -166,7 +183,7 @@
   }
 
   .email-input {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
     padding-left: 40px;
@@ -175,7 +192,8 @@
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 20px;
-    width: 100%;
+    width: 89%;
+    height: auto;
     outline: none;
   }
  
@@ -184,7 +202,7 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: 16px;
-    margin-bottom: 20px;
+    width: 100%;
 
 
 }
@@ -209,6 +227,11 @@
   font-size: 18px;
   width: auto;
   height: 40px;
+  cursor: pointer;
+}
+
+.signup:hover {
+  color: black;
 }
 
 .start-search {
@@ -216,8 +239,13 @@
   color: white;
   background-color: lightseagreen;
   border-radius: 20px;
-  width: 250px;
+  width: 100%;
   height: 60px;
   margin-top: 20px;
+  cursor: pointer;
 
+}
+
+.start-search:hover {
+  color: lightblue;
 }

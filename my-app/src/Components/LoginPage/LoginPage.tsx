@@ -28,6 +28,7 @@ return (
       </button>
       </div>
     </div>
+    <hr className="header-line" />
   
     <div className="text">Your search for the next dream job is over 🚀</div>
   
