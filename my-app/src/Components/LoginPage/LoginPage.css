@@ -2,6 +2,13 @@
     width: 150px;
     margin-bottom: 20px;
 }
+.logo-img {
+    margin-left: 10px;
+}
+.logo2-img {
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
 
 .container {
     display: flex;
@@ -60,10 +67,14 @@
     display: flex;
     background-color: transparent;
     border: none;
-    font-size: 16px;
+    font-size: inherit;
     cursor: pointer;
     color: blue;
     text-decoration: underline;
+  }
+
+  .text-button:hover {
+    color: darkblue;
   }
   
   .sign-in {
@@ -163,3 +174,24 @@
     outline: none;
   }
  
+  .terms-text {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}

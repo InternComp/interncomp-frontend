@@ -13,16 +13,20 @@ const LoginPage = () => {
 return (
     <div className="container">
     <div className="header">
-      <img src={Logo2} alt="Briefcase" />
-      <img src={Logo} alt="InternComp" />
+    <div className="logos">
+      <img src={Logo2} alt="Briefcase" className="logo2-img" /> 
+      <img src={Logo} alt="InternComp" className="logo-img" />
+      </div>
       <button className="nav-button">Home</button>
       <button className="nav-button">Jobs</button>
       <button className="nav-button">Companies</button>
       <button className="nav-button">About Us</button>
+      <div className="header-container">
       <h1>Login</h1>
       <button className="signup">
         Signup <img src={Paper} alt="Paper Airplane" className="button-img" />
       </button>
+      </div>
     </div>
   
     <div className="text">Your search for the next dream job is over 🚀</div>
@@ -33,11 +37,12 @@ return (
       </div>
   
       <div className="login-form">
-       
-        <div className="text">Create an account or sign in. By continuing, you agree to our </div>
+      <div className="terms-text">
+        <span>Create an account or sign in. By continuing, you agree to our </span>
         <button className="text-button">Terms of Use</button>
-        <div className="text"> and acknowledge our</div>
+        <span> and acknowledge our</span>
         <button className="text-button">Privacy Policy</button>
+        </div>
         <button className="sign-in">
           <img src={Google} alt="Google Logo" className="button-img" />
           Sign in with Google
