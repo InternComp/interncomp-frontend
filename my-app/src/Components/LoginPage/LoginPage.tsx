@@ -24,7 +24,7 @@ return (
       <div className="header-container">
       <h1>Login</h1>
       <button className="signup">
-        Signup <img src={Paper} alt="Paper Airplane" className="button-img" />
+        SignUp <img src={Paper} alt="Paper Airplane" className="button-img" />
       </button>
       </div>
     </div>

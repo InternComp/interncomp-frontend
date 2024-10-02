@@ -200,3 +200,24 @@
     margin: 0;
     font-size: 24px;
 }
+
+.signup {
+  border: 2px solid black;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  font-size: 18px;
+  width: auto;
+  height: 40px;
+}
+
+.start-search {
+  border: none;
+  color: white;
+  background-color: lightseagreen;
+  border-radius: 20px;
+  width: 250px;
+  height: 60px;
+  margin-top: 20px;
+
+}
