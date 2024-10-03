@@ -1,15 +1,14 @@
 import { useState } from "react";
 import React from "react";
-import './LoginPage.css'
-import Lightbulb from '../Assets/Icons/Lightbulb.png'
+import './CompanyPage.css'
 import Logo from '../Assets/Icons/Logo.png'
-import People from '../Assets/Icons/People.png'
 import Logo2 from '../Assets/Icons/Logo2.png'
-import Google from '../Assets/Icons/Google.png'
 import Paper from '../Assets/Icons/Paper.png'
+import Background from '../Assets/Icons/Background.png'
+import profile from '../Assets/Icons/CoLab logo.png'
 
 
-const LoginPage = () => {
+const CompanyPage = () => {
 return (
     <div className="container">
     <div className="header">
@@ -29,43 +28,19 @@ return (
       </div>
     </div>
     <hr className="header-line" />
-  
-    <div className="text">Your search for the next dream job is over 🚀</div>
-  
-    <div className="grid-container">
-      <div className="lightbulb-section">
-        <img src={Lightbulb} alt="Lightbulb" className="image" />
-      </div>
-  
-      <div className="login-form">
-      <div className="terms-text">
-        <span>Create an account or sign in. By continuing, you agree to our </span>
-        <button className="text-button">Terms of Use</button>
-        <span> and acknowledge our</span>
-        <button className="text-button">Privacy Policy</button>
-        </div>
-        <button className="sign-in">
-          <img src={Google} alt="Google Logo" className="button-img" />
-          Sign in with Google
-        </button>
-  
-        <div className="separator">
-          <hr className="line" />
-          <span className="or">or</span>
-          <hr className="line" />
-        </div>
-  
-        <div className="email-text">Enter Email</div>
-        <input type="email" placeholder = "Username@mail.com" className="email-input" />
-        <button className="sign-in">Continue with email</button>
-  
-        <button className="start-search">Start Searching →</button>
-      </div>
-      <div className="people">
-        <img src={People} alt="People" className="image" />
-      </div>
+    <div className = "company-header">
+
+    <img src={Background} alt="Background" className="Background" />
+    <img src={profile} alt="profile" className="profile" />
+
+
+
+
+
+
+
+
     </div>
-    
   </div>
   
 );
@@ -73,4 +48,4 @@ return (
 };
 
 
-export default LoginPage;
+export default CompanyPage;
