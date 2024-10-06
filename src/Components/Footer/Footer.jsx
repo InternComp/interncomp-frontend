@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import spotify from "../../assets/spotify.png";
-import slack from "../../assets/slack.png";
-import adobe from "../../assets/adobe.png";
-import asana from "../../assets/asana.png";
-import linear from "../../assets/linear.png";
+// import spotify from "../../assets/spotify.png";
+// import slack from "../../assets/slack.png";
+// import adobe from "../../assets/adobe.png";
+// import asana from "../../assets/asana.png";
+// import linear from "../../assets/linear.png";
 
 const Footer = () => {
     return (
