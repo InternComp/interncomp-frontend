@@ -1,0 +1,19 @@
+.full-page {
+  width: 100vw;
+  height: calc(100vw * 9 / 16); /* Maintain 16:9 aspect ratio */
+  overflow: hidden; /* Ensure content fits */
+}
+
+@media (max-width: 768px) {
+  .full-page {
+      width: 100vw;
+      height: calc(100vw * 9 / 16); /* Adjust for smaller screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .full-page {
+      width: 100vw;
+      height: calc(100vw * 9 / 16); /* Keep ratio for larger screens */
+  }
+}
