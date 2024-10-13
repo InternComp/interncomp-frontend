@@ -1,0 +1,264 @@
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+.logo-img {
+    margin-left: none;
+}
+.logo2-img {
+    margin-bottom: 15px;
+    margin-left: none;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  margin-left: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+  }
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    
+}
+
+.header img {
+    margin-right: 10px;
+}
+
+.nav-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 20px 10px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    color:black
+}
+
+.header .nav-button:hover {
+    color:rgb(0, 255, 255)
+}
+
+.nav-button:focus {
+    outline: none;
+}
+
+.text {
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 120px;
+    width: 100%;
+  }
+
+  .text-button {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .text-button:hover {
+    color: darkblue;
+  }
+
+  .email-text{
+    font-size: inherit;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-weight: bold;
+    width: 100%;
+    height: auto;
+  }
+  
+  .button-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+ 
+  .separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  .header-line{
+    border: none;
+    border-top: 1px solid black;
+    width: 100%;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .line {
+    border: none;
+    border-top: 1px solid #858585c5;
+    width: 100%;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .or {
+    color: #858585c5;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    
+  }
+
+  .signin {
+    display: flex;
+  }
+
+  .lightbulb-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .lightbulb-section img {
+    width: 150px;
+    height: auto;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .people {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 3;
+}
+  .people img {
+    width: 400px;
+    height: auto;
+  }
+
+  .email-input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 40px;
+    font-size: 16px;
+    background-image: url('../Assets/Icons/User.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 20px;
+    width: 89%;
+    height: auto;
+    outline: none;
+  }
+ 
+  .terms-text {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    width: 100%;
+
+
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-left: 80px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.signup {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  font-size: 18px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  padding: 10px;
+  
+}
+
+.signup:hover {
+  color: cyan;
+}
+
+.start-search {
+  border: none;
+  color: white;
+  background-color: lightseagreen;
+  border-radius: 20px;
+  width: 100%;
+  height: 60px;
+  margin-top: 50px;
+  cursor: pointer;
+
+}
+
+.start-search:hover {
+  color: lightblue;
+}

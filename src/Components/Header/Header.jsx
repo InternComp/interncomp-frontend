@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-
-const Header = () => {
+import Paper from '../Assets/Icons/Paper.png'
+const Header = ({ setActiveComponent }) => {
     return (
         <div className="full-page">
             <div className='header flex justify-between items-center p-[1.5rem]'>
@@ -15,12 +15,17 @@ const Header = () => {
 
                 <div className="menu-container flex justify-center w-full">
                     <div className="menu flex gap-8">
-                        <li className="menuList text-[#6f6f6f] hover:text-blue-300">Home</li>
-                        <li className="menuList text-[#6f6f6f] hover:text-blue-300">Jobs</li>
-                        <li className="menuList text-[#6f6f6f] hover:text-blue-300">Companies</li>
-                        <li className="menuList text-[#6f6f6f] hover:text-blue-300">About us</li>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('Home')}>Home</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('Jobs')}>Jobs</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('Companies')}>Companies</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('AboutUs')}>About Us</button>
                     </div>
+                    
                 </div>
+                <button className="signup" onClick={() => setActiveComponent('LoginPage')}>
+                    <div style={{padding:'5px'}}>SignUp </div> 
+                    <img src={Paper} alt="Paper Airplane" className="button-img" />
+                </button>
             </div>
         </div>  
     )
