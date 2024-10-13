@@ -21,13 +21,14 @@
 }
 
 .Company-profile {
-    display: block;
-    align-items: center;
     position: absolute;
+    display: block;
+    align-items: absolute;
     padding: 10px;
     margin-top: 480px;
     margin-right: 1100px;
     margin-left: 100px;
+    height: auto;
     z-index: 2;
     margin-bottom: 20px;
 }
@@ -62,8 +63,14 @@
 }
 
 .background-wrapper {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
 }
 
 .company-icon {
