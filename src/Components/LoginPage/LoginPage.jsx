@@ -2,11 +2,9 @@ import { useState } from "react";
 import React from "react";
 import './LoginPage.css'
 import Lightbulb from '../Assets/Icons/Lightbulb.png'
-import Logo from '../Assets/Icons/Logo.png'
 import People from '../Assets/Icons/People.png'
-import Logo2 from '../Assets/Icons/Logo2.png'
 import Google from '../Assets/Icons/Google.png'
-import Paper from '../Assets/Icons/Paper.png'
+
 
 
 const LoginPage = () => {

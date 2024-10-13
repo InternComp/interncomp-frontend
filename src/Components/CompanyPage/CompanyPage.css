@@ -1,148 +1,152 @@
-.logo {
-    width: 150px;
+.company-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+}
+
+.company-grid-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  }
+
+.Company-background {
+  display: flex;
+  width: 100%;
+  object-fit: cover
+}
+
+.Company-profile {
+    display: block;
+    align-items: center;
+    position: absolute;
+    padding: 10px;
+    margin-top: 480px;
+    margin-right: 1100px;
+    margin-left: 100px;
+    z-index: 2;
     margin-bottom: 20px;
 }
-.logo-img {
-    margin-left: none;
-}
-.logo2-img {
-    margin-bottom: 15px;
-    margin-left: none;
-}
-
-.logos {
+.text-on-image{
+  position: absolute;
   display: flex;
   align-items: center;
-  margin-right: 50px;
-  margin-left: none;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px; 
-    align-items: center;
-    margin-top: 40px;
-    width: 100%;
-  }
-
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    
-}
-
-.header img {
-    margin-right: 10px;
-}
-
-.nav-button {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 20px 10px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    color:black
-}
-
-.header .nav-button:hover {
-    color:rgb(0, 255, 255)
-}
-
-.nav-button:focus {
-    outline: none;
-}
-
-.text {
-    margin-top: 20px;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin-left: 120px;
-    width: 100%;
-  }
-
-  .text-button {
-    display: flex;
-    background-color: transparent;
-    border: none;
-    font-size: inherit;
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-  }
-
-  .text-button:hover {
-    color: darkblue;
-  }
-  
-  .button-img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-
-  .header-line{
-    border: none;
-    border-top: 1px solid black;
-    width: 100%;
-    margin: 0 10px;
-    font-weight: bold;
-  }
-
-  .image {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    
-  }
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-left: 80px;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.signup {
-  border: 2px solid black;
+  text-align: center;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 1; 
+  margin-bottom: 100px;
   color: white;
-  background-color: black;
-  border-radius: 10px;
-  font-size: 18px;
-  width: auto;
-  height: 40px;
-  cursor: pointer;
+  top: 50px;
+  left: 50px;
 }
 
-.signup:hover {
-  color: black;
+.text-on-image h1 {
+  margin: 0;
+  color: white;
+  font-size: 36px;
+}
+.colab-text {
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  color: white;
+  padding: 100px;
+  
 }
 
-.Background {
+.background-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.company-icon {
+margin-right: 10px;
+margin-left: 10px;
+}
+
+.info-text {
+font-size: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 250px;
+}
+
+.company-big-text{
+  font-weight: bold;
+  font-size: 40px;
+  padding: 20px;
+}
+
+.company-little-text {
   margin: 0;
 }
 
-.profile {
+.description {
+  align-items: left;
+}
+
+.company-start-search {
+  border: none;
+  color: white;
+  background-color: rgb(0, 217, 255);
+  border-radius: 20px;
+  width: 100%;
+  height: 60px;
+  margin-top: 50px;
+  cursor: pointer;
+  margin: 0 10px;
+
+}
+
+.grid-company-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px; 
+  align-items: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.company-button-img {
+  border-width: 1px;
+  border-color: lightblue;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.company-buttons {
+  align-items: left;
+  padding: 10px;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+  justify-content: space-around;
+  margin: 0 10px;
+}
+
+.other-buttons {
+  flex: 1;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
