@@ -171,7 +171,7 @@ font-size: 20px;
 
 .rows {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start; 
   width: 100%;
   padding: 20px;
@@ -188,3 +188,8 @@ font-size: 20px;
   font-weight: bold;
 }
 
+.alignment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

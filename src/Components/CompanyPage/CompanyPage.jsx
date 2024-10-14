@@ -52,7 +52,7 @@ return (
 <h1 className = 'company-little-text'>Growth opportunities as part of CoLab's expansion into AI and engineering tools. Focus on innovation, allowing employees to work on cutting-edge projects. Career advancement in the tech sector, with opportunities to develop new skills. Funded growth, supported by government programs that have enabled 20% of the workforce to be hired through initiatives. Dynamic work environment, where employee contributions are recognized and rewarded. Support for team growth, ensuring a collaborative and forward-thinking workplace​ </h1>
 
 </div>
-
+<div className = "alignment">
 <div className = "company-buttons">
 <button className="company-start-search">Contact This Company</button>
 <button className="company-start-search">Company Reviews</button>
@@ -64,7 +64,7 @@ return (
         </button>
         </div>
         <div className = "about-company">
-          <h1 className = 'about-company-header'>About Company</h1>
+          <h2 className = 'about-company-header'>About Company</h2>
           <div className = "about-company-item">
           <h3>Primary Industry</h3>
           <p>Software Development</p>
@@ -80,16 +80,11 @@ return (
         <div className="about-company-item">
           <h3>Location</h3>
           <p>New-York, USA</p>
+          </div>
         </div>
-
-
         </div>
-
-
-</div>
-
-
-    </div>
+        </div>
+        </div>
   
 );
 
