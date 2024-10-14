@@ -42,7 +42,7 @@ return (
     <h1 className="info-text"> New-York, USA</h1>
     </div>
     </div>
-
+<div className = 'rows'>
 <div className = 'description'>
 <h1 className= 'company-big-text'>Company Description</h1>
 <h1 className = 'company-little-text'>CoLab Software is a St. John’s-based tech company that provides a cloud-based Design Engagement System (DES) for engineering teams. Their platform helps streamline the review and collaboration process on 3D CAD models, enhancing communication, reducing design errors, and improving productivity. Since its founding in 2017 by Adam Keating and Jeremy Andrews, CoLab has gained clients like Ford and Komatsu, who use its technology to cut product development times and facilitate remote team collaboration​</h1>
@@ -62,6 +62,28 @@ return (
         <button className = 'other-buttons'>
           <img src={tab} alt="tabs" className="company-button-img" />
         </button>
+        </div>
+        <div className = "about-company">
+          <h1 className = 'about-company-header'>About Company</h1>
+          <div className = "about-company-item">
+          <h3>Primary Industry</h3>
+          <p>Software Development</p>
+          </div>
+          <div className="about-company-item">
+          <h3>Company Size</h3>
+          <p>51-200 employees</p>
+        </div>
+        <div className="about-company-item">
+          <h3>Founded In</h3>
+          <p>2017</p>
+        </div>
+        <div className="about-company-item">
+          <h3>Location</h3>
+          <p>New-York, USA</p>
+        </div>
+
+
+        </div>
 
 
 </div>
