@@ -80,7 +80,7 @@ return (
           <img src={Blue_User} alt="User" className="info-icon"/>
           <div className="info-content">
           <h3>Company Size:</h3>
-          <p>51-200 employees</p>
+          <p>100 employees</p>
           </div>
         </div>
         <div className="about-company-item">
@@ -92,6 +92,7 @@ return (
         </div>
         </div>
         <h1 className = 'about-company-header'>Contacts</h1>
+        
         <div className="contacts-container">
           <div className="contact-row">
         <div className="about-company-item">
