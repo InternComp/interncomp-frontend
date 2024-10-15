@@ -6,7 +6,6 @@
   padding: 0;
   position: relative;
   justify-content: space-between;
-  align-items: flex-start;
 
 }
 
@@ -25,42 +24,37 @@
 .Company-profile {
     position: absolute;
     display: block;
-    align-items: absolute;
     padding: 10px;
-    margin-top: 480px;
-    margin-right: 1100px;
-    margin-left: 100px;
+    top: 60vh;
+    left: 10vw;
     height: auto;
     z-index: 2;
     margin-bottom: 20px;
 }
 .text-on-image{
+  margin-top: 20px;
   position: absolute;
   display: flex;
-  align-items: center;
-  text-align: center;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
   z-index: 1; 
-  margin-bottom: 100px;
   color: white;
-  top: 50px;
-  left: 50px;
+  top: 5vh; 
+  left: 5vw;
 }
 
 .text-on-image h1 {
-  margin: 0;
+  gap: 20px;
   color: white;
-  font-size: 36px;
+  font-size: 2.5rem;
 }
 .colab-text {
   margin-top: 20px;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: bold;
   display: flex;
   color: white;
-  padding: 100px;
+  padding: 10px 50px;
+  
   
 }
 
