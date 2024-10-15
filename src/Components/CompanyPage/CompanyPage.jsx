@@ -9,6 +9,9 @@ import clip from '../../assets/clip.png'
 import pin from '../../assets/map-pin.png'
 import Bookmark from '../../assets/Bookmark.png'
 import tab from '../../assets/tab.png'
+import Blue_Briefcase from '../../assets/Blue_Briefcase.png'
+import Blue_User from '../../assets/Blue_User.png'
+import Blue_Calendar from '../../assets/Blue_Calendar.png'
 
 
 const CompanyPage = () => {
@@ -65,22 +68,57 @@ return (
         </div>
         <div className = "about-company">
           <h2 className = 'about-company-header'>About Company</h2>
+          <div className="company-info">
           <div className = "about-company-item">
-          <h3>Primary Industry</h3>
+          <img src={Blue_Briefcase} alt="Briefcase" className="info-icon" />
+          <div className="info-content">
+          <h3>Primary Industry:</h3>
           <p>Software Development</p>
           </div>
-          <div className="about-company-item">
-          <h3>Company Size</h3>
-          <p>51-200 employees</p>
-        </div>
-        <div className="about-company-item">
-          <h3>Founded In</h3>
-          <p>2017</p>
-        </div>
-        <div className="about-company-item">
-          <h3>Location</h3>
-          <p>New-York, USA</p>
           </div>
+          <div className="about-company-item">
+          <img src={Blue_User} alt="User" className="info-icon"/>
+          <div className="info-content">
+          <h3>Company Size:</h3>
+          <p>51-200 employees</p>
+          </div>
+        </div>
+        <div className="about-company-item">
+        <img src={Blue_Calendar} alt="calendar" className="info-icon"/>
+        <div className="info-content">
+          <h3>Founded In:</h3>
+          <p>2017</p>
+          </div>
+        </div>
+        </div>
+        <h1 className = 'about-company-header'>Contacts</h1>
+        <div className="contacts-container">
+          <div className="contact-row">
+        <div className="about-company-item">
+          <div className="info-content">
+          <h3>Phone:</h3>
+          <p>N/A</p>
+          </div>
+        </div>
+
+        <div className="about-company-item">
+          <div className="info-content">
+          <h3>Email:</h3>
+          <p>support@colabsoftware.com</p>
+          </div>
+        </div>
+        </div>
+        </div>
+
+        <div className="about-company-item">
+          <div className="info-content">
+          <h3>Location:</h3>
+          <p>St. John's, Newfoundland and Labrador, Canada.</p>
+          </div>
+        </div>
+
+        <button className="review-button">Write Review About Company</button>
+
         </div>
         </div>
         </div>
