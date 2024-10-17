@@ -1,23 +1,23 @@
-import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import bestIndustry from "./assets/bestIndustry.png";
+import LoginPage from "./Components/LoginPage/LoginPage";
+import Home from "./Components/Home/Home";
+import WelcomeNewUserPage from "./Components/WelcomeNewUserPage/WelcomeNewUserPage";
+
 
 const App = () => {
   return (
-    <>
-      <div className="w-[95%] m-auto bg-white">
-        <Header />
-      </div>
-
-      <div className="w-full">
-        <img src={bestIndustry} alt="Join the best companies" className="w-full max-w-[100%] " />
-      </div>
-
-      <div className="w-[95%] m-auto bg-white">
-        <Footer />
-      </div>
-    </>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/WelcomeNewUserPage" element={<WelcomeNewUserPage />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
