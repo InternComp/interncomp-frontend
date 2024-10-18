@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import './CompanyPage.css'
 import Background from '../../assets/Colab_Background.png'
@@ -15,44 +15,98 @@ import Blue_Calendar from '../../assets/Blue_Calendar.png'
 
 
 const CompanyPage = () => {
-return (
+
+  const [companyData, setCompanyData] = useState({
+    name: "Loading...",
+    description: "Loading company description...",
+    industry: "Loading industry...",
+    size: "Loading size...",
+    founded: "Loading year...",
+    location: "Loading location...",
+    benefits: "Loading benefits...",
+    email: "Loading email...",
+    profileImage: "Loading email...", 
+    jobTitle: "Loading...",
+    salary: "Loading...",
+    jobType: "Loading...",
+    background: "Loading...",
+    phone: "Loading...",
+    position: "Loading...",
+    culture: "Loading...",
+
+  });
+
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      try {
+        const response = await fetch("insert API here"); 
+        const data = await response.json();
+
+        setCompanyData({
+          name: data.name || "CoLab",
+          description: data.description,
+          industry: data.industry,
+          size: data.size,
+          founded: data.founded,
+          location: data.location,
+          benefits: data.benefits,
+          email: data.email,
+          profileImage: data.profileImage || profile,
+          jobTitle: data.jobTitle,
+          salary: data.salary,
+          jobType: data.jobType,
+          background: data.background,
+          phone: data.phone,
+          position: data.position,
+          culture: data.culture,
+        });
+
+      } catch (error) {
+        console.error("Did not fetch data", error);
+      }
+    };
+
+    fetchCompanyData();
+  }, []);
+
+  return (
     <div className="company-container">
     <div className = "background-wrapper">
-    <img src={Background} alt="Background" className="Company-background" />
+    <img src={companyData.background} alt="Background" className="Company-background" />
     
     <div className = "text-on-image">
     <h1> Home/Jobs/Companies</h1>
-    <h1 className = "colab-text"> CoLab</h1>
+    <h1 className = "company-text"> {companyData.name} </h1>
     </div>
     </div>
-    <img src={profile} alt="profile" className="Company-profile" />
+    <img src={companyData.profileImage} alt="profile" className="Company-profile" />
 
     <div className = "info">
     <div className="info-item">
     <img src={logo} alt="logo" className="company-icon"/>
-    <h1 className="info-text"> Software </h1>
+    <h1 className="info-text">{companyData.industry}</h1>
     </div>
     <div className="info-item">
     <img src={clock} alt="clock" className="company-icon"/>
-    <h1 className="info-text"> Full time</h1>
+    <h1 className="info-text">{companyData.position}</h1>
     </div>
     <div className="info-item">
     <img src={clip} alt="clip" className="company-icon"/>
-    <h1 className="info-text"> $75,000 - $98,598 per year</h1>
+    <h1 className="info-text">{companyData.salary}</h1>
     </div>
     <div className="info-item">
     <img src={pin} alt="pin" className="company-icon"/>
-    <h1 className="info-text"> New-York, USA</h1>
+    <h1 className="info-text">{companyData.location}</h1>
     </div>
     </div>
 <div className = 'rows'>
 <div className = 'description'>
 <h1 className= 'company-big-text'>Company Description</h1>
-<h1 className = 'company-little-text'>CoLab Software is a St. John’s-based tech company that provides a cloud-based Design Engagement System (DES) for engineering teams. Their platform helps streamline the review and collaboration process on 3D CAD models, enhancing communication, reducing design errors, and improving productivity. Since its founding in 2017 by Adam Keating and Jeremy Andrews, CoLab has gained clients like Ford and Komatsu, who use its technology to cut product development times and facilitate remote team collaboration​</h1>
+<h1 className = 'company-little-text'>{companyData.description}​</h1>
 <h1 className= 'company-big-text'>Company Culture</h1>
-<h1 className = 'company-little-text'>CoLab Software emphasizes a collaborative and innovative work environment that draws from the supportive tech ecosystem in Newfoundland and Labrador. The company culture is rooted in the founders' vision of maintaining a great work-life balance, providing employees with a positive and friendly work atmosphere. CoLab values community engagement and actively participates in local initiatives focused on student entrepreneurship and diversity in tech. Employees have relocated from other regions due to the unique cultural strengths and passion the company fosters​</h1>
+<h1 className = 'company-little-text'>{companyData.culture}​</h1>
 <h1 className= 'company-big-text'>Company Benefits</h1>
-<h1 className = 'company-little-text'>Growth opportunities as part of CoLab's expansion into AI and engineering tools. Focus on innovation, allowing employees to work on cutting-edge projects. Career advancement in the tech sector, with opportunities to develop new skills. Funded growth, supported by government programs that have enabled 20% of the workforce to be hired through initiatives. Dynamic work environment, where employee contributions are recognized and rewarded. Support for team growth, ensuring a collaborative and forward-thinking workplace​ </h1>
+<h1 className = 'company-little-text'>{companyData.benefits}​ </h1>
 
 </div>
 <div className = "alignment">
@@ -73,39 +127,39 @@ return (
           <img src={Blue_Briefcase} alt="Briefcase" className="info-icon" />
           <div className="info-content">
           <h3>Primary Industry:</h3>
-          <p>Software Development</p>
+          <p>{companyData.industry}</p>
           </div>
           </div>
           <div className="about-company-item">
           <img src={Blue_User} alt="User" className="info-icon"/>
           <div className="info-content">
           <h3>Company Size:</h3>
-          <p>100 employees</p>
+          <p>{companyData.size}</p>
           </div>
         </div>
         <div className="about-company-item">
         <img src={Blue_Calendar} alt="calendar" className="info-icon"/>
         <div className="info-content">
           <h3>Founded In:</h3>
-          <p>2017</p>
+          <p>{companyData.founded}</p>
           </div>
         </div>
         </div>
         <h1 className = 'about-company-header'>Contacts</h1>
-        
+
         <div className="contacts-container">
           <div className="contact-row">
         <div className="about-company-item">
           <div className="info-content">
           <h3>Phone:</h3>
-          <p>N/A</p>
+          <p>{companyData.phone}</p>
           </div>
         </div>
 
         <div className="about-company-item">
           <div className="info-content">
           <h3>Email:</h3>
-          <p>support@colabsoftware.com</p>
+          <p>{companyData.email}</p>
           </div>
         </div>
         </div>
@@ -114,7 +168,7 @@ return (
         <div className="about-company-item">
           <div className="info-content">
           <h3>Location:</h3>
-          <p>St. John's, Newfoundland and Labrador, Canada.</p>
+          <p>{companyData.location}</p>
           </div>
         </div>
 
@@ -124,9 +178,8 @@ return (
         </div>
         </div>
         </div>
-  
-);
 
+  )
 };
 
 
