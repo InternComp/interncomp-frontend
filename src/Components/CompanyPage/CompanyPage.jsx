@@ -17,7 +17,7 @@ import Blue_Calendar from '../../assets/Blue_Calendar.png'
 const CompanyPage = () => {
 
   const [companyData, setCompanyData] = useState({
-    name: "Loading...",
+    name: "Loading name...",
     description: "Loading company description...",
     industry: "Loading industry...",
     size: "Loading size...",
@@ -26,13 +26,13 @@ const CompanyPage = () => {
     benefits: "Loading benefits...",
     email: "Loading email...",
     profileImage: "Loading email...", 
-    jobTitle: "Loading...",
-    salary: "Loading...",
-    jobType: "Loading...",
-    background: "Loading...",
-    phone: "Loading...",
-    position: "Loading...",
-    culture: "Loading...",
+    jobTitle: "Loading jobtitle...",
+    salary: "Loading salary...",
+    jobType: "Loading jobtype...",
+    background: "Loading background...",
+    phone: "Loading phone...",
+    position: "Loading position...",
+    culture: "Loading culture...",
 
   });
 
