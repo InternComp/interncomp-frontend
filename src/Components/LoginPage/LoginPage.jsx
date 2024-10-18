@@ -26,8 +26,8 @@ return (
         <button className="text-button">Privacy Policy</button>
         </div>
         <button className="sign-in">
-          <a href="http://localhost:3000/auth/google/">
-          <img src={Google} alt="Google Logo" className="button-img" />
+          
+          <img src={Google} alt="Google Logo" className="button-img" /><a href="http://localhost:3000/auth/google/">
           Sign in with Google
           </a>
 
