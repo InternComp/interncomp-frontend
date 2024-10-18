@@ -18,20 +18,28 @@
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20px; 
+  box-sizing: border-box;
+  padding-bottom: 200px;
 
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px; 
+     display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px; 
+    justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    max-width: 1200px;
     width: 100%;
-  }
+    padding: 20px; 
+}
+  
 
 
 .header {
@@ -72,6 +80,7 @@
     text-align: center;
     margin-left: 120px;
     width: 100%;
+    grid-column: 2; 
   }
 
   .text-button {
@@ -166,6 +175,10 @@
   .lightbulb-section {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    grid-column: 1; 
   }
 
   .lightbulb-section img {
@@ -175,20 +188,26 @@
 
   .login-form {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
+    
   }
 
   .people {
     display: flex;
     justify-content: center;
-    grid-column-start: 3;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    grid-column: 3;
+    
 }
   .people img {
     width: 400px;
     height: auto;
+    max-width: 100%;
   }
 
   .email-input {
@@ -222,6 +241,7 @@
     justify-content: flex-end;
     gap: 10px;
     margin-left: 80px;
+    padding: 20px;
 }
 
 .header h1 {
