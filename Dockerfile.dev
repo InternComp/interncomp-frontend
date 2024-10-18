@@ -1,0 +1,18 @@
+# Use an official Node.js runtime as the base image
+FROM node:20-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Install dependencies only when needed
+COPY package*.json ./
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port on which Vite serves the app
+EXPOSE 5173
+
+# Start the Vite development server
+CMD ["npm", "run", "dev", "--", "--host"]
