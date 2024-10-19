@@ -21,9 +21,9 @@ return (
       <div className="login-form">
       <div className="terms-text">
         <span>Create an account or sign in. By continuing, you agree to our </span>
-        <button className="text-button">Terms of Use</button>
+        <button className="text-button"> Terms of Use</button>
         <span> and acknowledge our</span>
-        <button className="text-button">Privacy Policy</button>
+        <button className="text-button"> Privacy Policy</button>
         </div>
         <button className="sign-in">
           
