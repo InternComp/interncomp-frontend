@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import bestIndustry from "./assets/bestIndustry.png";
+import bestindustry from "./assets/bestindustry.svg";
 import LoginPage from "./Components/LoginPage/LoginPage";
 import Home from "./Components/Home/Home"
+import CompaniesPage from "./Components/CompaniesPage/CompaniesPage";
 const App = () => {
   const [activeComponent, setActiveComponent] = useState('Home');
 
@@ -13,6 +14,8 @@ const App = () => {
         return <LoginPage />;
         case 'Home':
           return <Home />;
+        case 'Companies':
+          return <CompaniesPage />;
     }
   };
 
@@ -22,7 +25,7 @@ const App = () => {
         <Header setActiveComponent={setActiveComponent} />
       </div>
       {renderComponent()}
-      <div className="w-[95%] m-auto bg-white">
+      <div className="w-full m-auto bg-white">
         <Footer />
       </div>
     </>
