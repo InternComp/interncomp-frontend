@@ -40,7 +40,10 @@ const CompanyPage = () => {
   useEffect(() => {
     const fetchCompanyData = async () => {
       try {
-        const response = await fetch("insert API here"); 
+        const response = await fetch('http://localhost:3000/companies/:id', {
+          method: 'GET',
+          credentials: 'include', // Assuming cookies need to be included with the request
+        }); 
         const data = await response.json();
 
         setCompanyData({
