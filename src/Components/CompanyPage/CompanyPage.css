@@ -22,8 +22,7 @@
 }
 
 .Company-profile {
-    position: absolute;
-    display: block;
+    display: flex;
     padding: 10px;
     top: 60vh;
     left: 10vw;
