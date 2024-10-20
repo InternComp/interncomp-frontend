@@ -25,7 +25,7 @@ const CompanyPage = () => {
     location: "Loading location...",
     benefits: "Loading benefits...",
     email: "Loading email...",
-    profileImage: "Loading email...", 
+    profileImage: "Loading Profile", 
     jobTitle: "Loading jobtitle...",
     salary: "Loading salary...",
     jobType: "Loading jobtype...",
