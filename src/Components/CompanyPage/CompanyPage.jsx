@@ -33,6 +33,7 @@ const CompanyPage = () => {
     phone: "Loading phone...",
     position: "Loading position...",
     culture: "Loading culture...",
+    linkedin: "Loading LinkedIn...",
 
   });
 
@@ -59,6 +60,7 @@ const CompanyPage = () => {
           phone: data.phone,
           position: data.position,
           culture: data.culture,
+          linkedin: data.linkedin
         });
 
       } catch (error) {
@@ -163,8 +165,9 @@ const CompanyPage = () => {
           </div>
         </div>
         </div>
+        
         </div>
-
+        <div className="contacts-container">
         <div className="about-company-item">
           <div className="info-content">
           <h3>Location:</h3>
@@ -172,12 +175,24 @@ const CompanyPage = () => {
           </div>
         </div>
 
+        <div className="about-company-item">
+          <div className="info-content">
+          <h3>LinkedIn:</h3>
+          <p>{companyData.linkedin}</p>
+          </div>
+        </div>
+
+        </div>
+        </div>
+
+      
+
         <button className="review-button">Write Review About Company</button>
 
         </div>
         </div>
         </div>
-        </div>
+       
 
   )
 };
