@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import Paper from '../Assets/Icons/Paper.png'
+import { Link } from 'react-router-dom';
 const Header = ({ setActiveComponent }) => {
     return (
         <div className="full-page">
@@ -15,15 +16,15 @@ const Header = ({ setActiveComponent }) => {
 
                 <div className="menu-container flex justify-center w-full">
                     <div className="menu flex gap-8">
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('Home')}>Home</button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('Jobs')}>Jobs</button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('Companies')}>Companies</button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" onClick={() => setActiveComponent('AboutUs')}>About Us</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300"><Link to="/">Home</Link></button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" >Jobs</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" ><Link to="/Companies">Companies</Link></button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300">About Us</button>
                     </div>
                     
                 </div>
-                <button className="signup" onClick={() => setActiveComponent('LoginPage')}>
-                    <div style={{padding:'5px'}}>SignUp </div> 
+                <button className="signup"><Link to="/LoginPage">SignUp</Link>
+                    <div style={{padding:'5px'}}> </div> 
                     <img src={Paper} alt="Paper Airplane" className="button-img" />
                 </button>
             </div>

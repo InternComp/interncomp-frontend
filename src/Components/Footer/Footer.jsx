@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png";
 
 const Footer = () => {
     return (
-        <div className="footer p-[4rem] w-full bg-gray-500 grid grid-cols-4 items-start justify-start gap-[4rem]"> {/* Added gap between grid columns */}
+        <div className="footer p-[4rem] bg-gray-500 w-full grid grid-cols-4 items-start justify-start gap-[4rem]"> {/* Added gap between grid columns */}
             <div>
                 <div className="logoDiv flex items-center">
                     <img src={logo} alt="logo" className='h-[15px] w-[15px] mr-[5px]' />
