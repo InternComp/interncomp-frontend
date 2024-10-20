@@ -32,7 +32,7 @@ const WelcomeNewUserPage = () => {
         if (!userId) return; // Ensure 'userId' is present
         const fetchUserProfile = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/user/${userId}`);
+                const response = await fetch(`http://localhost:3000/User/${userId}`);
                 if (response.ok) {
                     const userInfo = await response.json();
                     setUser(userInfo);

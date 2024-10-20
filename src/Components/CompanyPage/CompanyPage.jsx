@@ -168,6 +168,7 @@ const CompanyPage = () => {
         
         </div>
         <div className="contacts-container">
+        <div className="contact-row">
         <div className="about-company-item">
           <div className="info-content">
           <h3>Location:</h3>
@@ -180,6 +181,7 @@ const CompanyPage = () => {
           <h3>LinkedIn:</h3>
           <p>{companyData.linkedin}</p>
           </div>
+        </div>
         </div>
 
         </div>
