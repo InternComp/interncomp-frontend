@@ -27,7 +27,7 @@ const CompanyPage = () => {
     location: "Loading location...",
     benefits: "Loading benefits...",
     email: "Loading email...",
-    profileImage: "Loading Profile", 
+    image: "Loading Profile", 
     jobTitle: "Loading jobtitle...",
     salary: "Loading salary...",
     jobType: "Loading jobtype...",
@@ -56,11 +56,11 @@ const CompanyPage = () => {
           location: data.location,
           benefits: data.benefits,
           email: data.email,
-          profileImage: data.profileImage || profile,
+          image: data.image || profile,
           jobTitle: data.jobTitle,
           salary: data.salary,
           jobType: data.jobType,
-          background: data.background,
+          banner: data.banner,
           phone: data.phone,
           position: data.position,
           culture: data.culture,
@@ -78,14 +78,14 @@ const CompanyPage = () => {
   return (
     <div className="company-container">
     <div className = "background-wrapper">
-    <img src={companyData.background} alt="Background" className="Company-background" />
+    <img src={companyData.banner} alt="Background" className="Company-background" />
     
     <div className = "text-on-image">
     <h1> Home/Jobs/Companies</h1>
     <h1 className = "company-text"> {companyData.name} </h1>
     </div>
     </div>
-    <img src={companyData.profileImage} alt="profile" className="Company-profile" />
+    <img src={companyData.image} alt="profile" className="Company-profile" />
 
     <div className = "info">
     <div className="info-item">

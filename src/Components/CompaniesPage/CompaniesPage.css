@@ -4,11 +4,17 @@
   text-align: center;
 }
 
+.description-container {
+  display: flex;              /* This enables Flexbox on the container */
+  justify-content: center;     /* Centers the item horizontally */
+  align-items: center;         /* Centers the item vertically */
+  text-align: center;          /* Aligns text inside the <p> element */
+}
+
 .description {
-  margin-top: 0px;
-  font-size: 12px;
-  text-align: center;
-  opacity: 0.5;
+  font-size: 13px;
+  opacity: 0.6;
+  width: 100%;                 /* Ensures it takes up full width */
 }
 
 /* Style for the parent container to center the cards */

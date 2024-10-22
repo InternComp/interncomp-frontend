@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import "./CompaniesPage.css";
 import CompanyPage from "../CompanyPage/CompanyPage";
 
@@ -8,7 +9,7 @@ const CompanyCard = ({ company, onClick }) => {
   return (
     <button
       className="company-card"
-      onClick={() => onClick(company.name)}
+      onClick={() => onClick(company.id)}
       style={{ cursor: "pointer" }}
     >
       <img src={company.image} alt={company.name} />
@@ -24,6 +25,7 @@ const CompanyCard = ({ company, onClick }) => {
 const CompaniesPage = () => {
   const [companies, setCompanies] = useState([]); // to store the companies data from the API
   const  [searchTerm, setSearchTerm] = React.useState("");
+  const navigate = useNavigate();
 
   // Fetch companies data from API
   useEffect(() => {
@@ -40,10 +42,9 @@ const CompaniesPage = () => {
     fetchCompanies(); // call the function
   }, []);
 
-  const handleCardClick = (companyName) => {
-
-    console.log(`${companyName} button clicked`);
-    // Future navigation or actions can go here
+  // Handle card click to navigate to the detailed page
+  const handleCardClick = (id) => {
+    navigate(`/Companies/${id}`); // Navigate to the company detail page using companyId
   };
 
   //Filter companies based on search term
@@ -55,10 +56,12 @@ const CompaniesPage = () => {
     <div>
       <div>
         <h1 className="companies">Companies</h1>
-        <p className="description">
-          Below is a curated list of companies, each excelling in their
-          respective fields and pushing the boundaries of innovation.
-        </p>
+        <div className="description-container">
+          <p className="description">
+            Below is a curated list of companies, each excelling in their
+            respective fields and pushing the boundaries of innovation.
+          </p>
+        </div>
       </div>
 
       <form className="w-[500px] mx-auto mt-4 my-auto relative">

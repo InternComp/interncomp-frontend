@@ -7,21 +7,24 @@ import CompaniesPage from "./Components/CompaniesPage/CompaniesPage";
 import WelcomeNewUserPage from "./Components/WelcomeNewUserPage/WelcomeNewUserPage";
 import CompanyPage from './Components/CompanyPage/CompanyPage';
 
-
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/WelcomeNewUserPage" element={<WelcomeNewUserPage />} />
-        <Route path="/Companies" element={<CompaniesPage />} />
-        <Route path="/Companies/:id" element={<CompanyPage />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="min-h-screen flex flex-col">
+      <Router>
+        <Header />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
+            <Route path="/WelcomeNewUserPage" element={<WelcomeNewUserPage />} />
+            <Route path="/Companies" element={<CompaniesPage />} />
+            <Route path="/Companies/:id" element={<CompanyPage />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
