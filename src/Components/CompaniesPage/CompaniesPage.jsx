@@ -2,7 +2,6 @@ import React, { useState, useEffect} from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import "./CompaniesPage.css";
-import CompanyPage from "../CompanyPage/CompanyPage";
 
 // Reusable CompanyCard component
 const CompanyCard = ({ company, onClick }) => {

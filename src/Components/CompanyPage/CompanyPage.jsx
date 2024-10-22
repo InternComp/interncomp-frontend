@@ -55,18 +55,20 @@ const CompanyPage = () => {
 
   return (
     <div className="company-container flex flex-col gap-10 px-6">
+      {/* Banner Section */}
       <div className="relative">
-        <img src={companyData.banner} alt="Company background" className="w-full h-auto object-contain" />
+        <img src={companyData.banner} alt="Company background" className="w-full h-[400px] object-cover" />
       </div>
 
+      {/* Company Logo Section */}
       <div className="relative flex items-center">
         <img src={companyData.image} alt="Company profile" className="company-logo" />
       </div>
 
+      {/* Company Info Section */}
       <div className="company-info-container flex items-start gap-8">
         {/* Left column */}
         <div className="company-info-left w-3/5">
-          {/* Company Details */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold">Company Description</h2>
             <p className="mt-2">{companyData.description}</p>
