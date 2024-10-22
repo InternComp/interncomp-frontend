@@ -5,20 +5,14 @@
   margin: 0;
   padding: 0;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-between; /* Container which contains all elements of the page.*/
 
 }
-
-.company-grid-container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  }
 
 .Company-background {
   display: flex;
   width: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Style for background image */
 }
 
 .Company-profile {
@@ -28,7 +22,7 @@
     left: 10vw;
     height: auto;
     z-index: 2;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Style for profile picture of company */
 }
 .text-on-image{
   margin-top: 20px;
@@ -67,7 +61,7 @@
   background-position: center;
   background-attachment: fixed;
   position: relative;
-  padding: 50px 0;
+  padding: 50px 0; /* Contains all background elements */
 }
 
 .company-icon {
@@ -111,7 +105,7 @@ font-size: 20px;
   flex: 1;
 }
 
-.company-start-search {
+.company-start-search { /* Style for contact company and company review buttons.*/
   border: none;
   color: white;
   background-color: rgb(0, 217, 255);
@@ -123,7 +117,7 @@ font-size: 20px;
   margin: 0 10px;
 }
 
-.company-start-search:hover {
+.company-start-search:hover { /* Style for hovering over buttons */
   border: none;
   color:  rgb(0, 217, 255);
   background-color: white;
@@ -135,15 +129,6 @@ font-size: 20px;
   margin: 0 10px;
 }
 
-.grid-company-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 10px; 
-  align-items: center;
-  margin-top: 40px;
-  width: 100%;
-}
-
 .company-button-img {
   border-width: 1px;
   border-color: lightblue;
@@ -151,7 +136,7 @@ font-size: 20px;
   margin-right: 10px;
 }
 
-.company-buttons {
+.company-buttons { /* Style for other buttons. */
   justify-content: space-between; 
   align-items: center;
   display: flex;
@@ -174,7 +159,7 @@ font-size: 20px;
   align-items: center;
 }
 
-.rows {
+.rows {   /*  style to keep the data on the left and right of the page in a row.*/
   display: flex;
   justify-content: flex-start;
   align-items: flex-start; 
@@ -184,7 +169,7 @@ font-size: 20px;
   align-items: stretch;
 }
 
-.about-company {
+.about-company { /* Style for right side of the page.*/
   display: flex;
   flex-direction: column;
   border: 2px solid cyan;
@@ -200,7 +185,7 @@ font-size: 20px;
   margin-top:10px;
 }
 
-.alignment {
+.alignment { /* Properly aligns the elements in the cyan box on the right of the page.*/
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -214,7 +199,7 @@ font-size: 20px;
   gap: 12px; 
 }
 
-.about-company-item{
+.about-company-item{ /* Style for aligning the images in the cyan box with their descriptions. */  
   display: flex;
   align-items: center;
   gap: 10px;
@@ -235,7 +220,7 @@ font-size: 20px;
   flex-direction: column;
 }
 
-.review-button {
+.review-button { /* Style for review button at bottom of rightside of the page.*/
   margin-top: 40px;
   border-width: 2px;
   border-color: cyan;
@@ -262,14 +247,14 @@ font-size: 20px;
   font-weight: bold;
   margin-bottom: 30px;
 }
-.contacts-container {
+.contacts-container { /* Style for containing the elements in the contact section.*/
   display: flex;
   flex-direction: row;
   gap: 20%;
   margin-bottom: 20px;
 }
 
-.contact-row {
+.contact-row { /* Style for aligning the elements in the contact section horizontally.  */ 
   display: flex;
   justify-content: space-between;
   width: 51%;

@@ -4,7 +4,7 @@ import './CompanyPage.css'
 import Background from '../../assets/Colab_Background.png'
 import profile from '../../assets/Colab_profile.png'
 import logo from '../../assets/New_Briefcase.png'
-import clock from '../../assets/clock.png'
+import clock from '../../assets/clock.png' 
 import clip from '../../assets/clip.png'
 import pin from '../../assets/map-pin.png'
 import Bookmark from '../../assets/Bookmark.png'
@@ -40,13 +40,13 @@ const CompanyPage = () => {
   useEffect(() => {
     const fetchCompanyData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/companies/:id', {
+        const response = await fetch('http://localhost:3000/companies/:id', {  // This section calls the API that will fetch the required data.
           method: 'GET',
           credentials: 'include', // Assuming cookies need to be included with the request
         }); 
         const data = await response.json();
 
-        setCompanyData({
+        setCompanyData({  // Data that will be fetched by the API.
           name: data.name || "CoLab",
           description: data.description,
           industry: data.industry,
@@ -67,7 +67,7 @@ const CompanyPage = () => {
         });
 
       } catch (error) {
-        console.error("Did not fetch data", error);
+        console.error("Did not fetch data", error); // catch statement for if the API does not work properly.
       }
     };
 
@@ -75,7 +75,8 @@ const CompanyPage = () => {
   }, []);
 
   return (
-    <div className="company-container">
+    /* container for all elements on the page.*/
+    <div className="company-container"> 
     <div className = "background-wrapper">
     <img src={companyData.background} alt="Background" className="Company-background" />
     
@@ -143,7 +144,7 @@ const CompanyPage = () => {
           </div>
         </div>
         <div className="about-company-item">
-        <img src={Blue_Calendar} alt="calendar" className="info-icon"/>
+        <img src={Blue_Calendar} alt="calendar" className="info-icon"/> 
         <div className="info-content">
           <h3>Founded In:</h3>
           <p>{companyData.founded}</p>
@@ -189,8 +190,6 @@ const CompanyPage = () => {
 
         </div>
         </div>
-
-      
 
         <button className="review-button">Write Review About Company</button>
 

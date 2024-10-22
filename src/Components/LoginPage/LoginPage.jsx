@@ -13,7 +13,7 @@ return (
   
     <div className="text">Your search for the next dream job is over 🚀</div>
   
-    <div className="grid-container">
+    <div className="grid-container"> 
       <div className="lightbulb-section">
         <img src={Lightbulb} alt="Lightbulb" className="image" />
       </div>
