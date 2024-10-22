@@ -17,23 +17,23 @@ import Blue_Calendar from '../../assets/Blue_Calendar.png';
 const CompanyPage = () => {
   const { id } = useParams();
   const [companyData, setCompanyData] = useState({
-    name: "Loading name...",
-    description: "Loading company description...",
-    industry: "Loading industry...",
-    size: "Loading size...",
-    founded: "Loading year...",
-    location: "Loading location...",
-    benefits: "Loading benefits...",
-    email: "Loading email...",
-    image: "Loading Profile", 
-    jobTitle: "Loading jobtitle...",
-    salary: "Loading salary...",
-    jobType: "Loading jobtype...",
-    background: "Loading background...",
-    phone: "Loading phone...",
-    position: "Loading position...",
-    culture: "Loading culture...",
-    linkedin: "Loading LinkedIn...",
+    name: "",
+    description: "",
+    industry: "",
+    size: "",
+    founded: "",
+    location: "",
+    benefits: "",
+    email: "",
+    image: "", 
+    jobTitle: "",
+    salary: "",
+    jobType: "",
+    background: "",
+    phone: "",
+    position: "",
+    culture: "",
+    linkedin: "",
   });
 
   useEffect(() => {
@@ -56,8 +56,9 @@ const CompanyPage = () => {
   return (
     <div className="company-container flex flex-col gap-10 px-6">
       <div className="relative">
-        <img src={companyData.banner} alt="Company background" className="w-full h-[400px] object-cover" />
+        <img src={companyData.banner} alt="Company background" className="w-full h-auto object-contain" />
       </div>
+
       <div className="relative flex items-center">
         <img src={companyData.image} alt="Company profile" className="company-logo" />
       </div>
@@ -85,7 +86,7 @@ const CompanyPage = () => {
         {/* Right column */}
         <div className="company-info-right w-2/5">
           <div className="company-buttons flex gap-4 mb-6">
-            <button className="button-primary">Contact This Company</button>
+            <button className="button-primary">View Careers</button>
             <button className="button-primary">Company Reviews</button>
             <button className="button-secondary">
               <img src={Bookmark} alt="Bookmark" className="w-6 h-6" />

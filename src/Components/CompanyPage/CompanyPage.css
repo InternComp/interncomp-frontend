@@ -53,13 +53,14 @@
 
 .company-logo {
   position: absolute;
-  bottom: 5px; /* Distance from the bottom */
+  bottom: -1rem; /* Distance from the bottom */
   left: 20px;   /* Distance from the left */
-  width: 150px;  /* Adjust the size of the logo */
+  width: 160px;  /* Increase the size of the logo */
   height: auto;
   border-radius: 15px; /* Slight rounding for the logo corners */
   padding: 10px; /* Padding inside the logo image */
   z-index: 10; /* Ensures the logo is above other content */
 }
+
 
 
