@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './WelcomeNewUserPage.css'
 const WelcomeNewUserPage = () => {
     const [username, setUsername] = useState('');
     const [user, setUser] = useState(null);

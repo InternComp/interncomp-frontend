@@ -6,7 +6,6 @@ import Home from "./Components/Home/Home";
 import CompaniesPage from "./Components/CompaniesPage/CompaniesPage";
 import WelcomeNewUserPage from "./Components/WelcomeNewUserPage/WelcomeNewUserPage";
 import CompanyPage from './Components/CompanyPage/CompanyPage';
-import ComingSoon from './Components/ComingSoon/ComingSoon';
 const App = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -16,7 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/LoginPage" element={<LoginPage />} />
-            <Route path="/ComingSoon" element={<ComingSoon />} />
+            {/*<Route path="/ComingSoon" element={<ComingSoon />} />*/}
             <Route path="/WelcomeNewUserPage" element={<WelcomeNewUserPage />} />
             <Route path="/Companies" element={<CompaniesPage />} />
             <Route path="/Companies/:id" element={<CompanyPage />} />
