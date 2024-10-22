@@ -5,6 +5,7 @@ import LoginPage from "./Components/LoginPage/LoginPage";
 import Home from "./Components/Home/Home";
 import CompaniesPage from "./Components/CompaniesPage/CompaniesPage";
 import WelcomeNewUserPage from "./Components/WelcomeNewUserPage/WelcomeNewUserPage";
+import CompanyPage from './Components/CompanyPage/CompanyPage';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/WelcomeNewUserPage" element={<WelcomeNewUserPage />} />
         <Route path="/Companies" element={<CompaniesPage />} />
+        <Route path="/Companies/:id" element={<CompanyPage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
       <Footer />

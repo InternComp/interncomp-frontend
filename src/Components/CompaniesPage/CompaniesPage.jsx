@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import "./CompaniesPage.css";
+import CompanyPage from "../CompanyPage/CompanyPage";
 
 // Reusable CompanyCard component
 const CompanyCard = ({ company, onClick }) => {
@@ -10,7 +11,7 @@ const CompanyCard = ({ company, onClick }) => {
       onClick={() => onClick(company.name)}
       style={{ cursor: "pointer" }}
     >
-      <img src={company.logo} alt={company.name} />
+      <img src={company.image} alt={company.name} />
       <div className="company-info">
         <h3>{company.name}</h3>
         <p>{company.description}</p>
@@ -21,16 +22,16 @@ const CompanyCard = ({ company, onClick }) => {
 
 // CompaniesPage Template
 const CompaniesPage = () => {
-  const [companiesinfo, setCompaniesinfo] = useState([]); // to store the companies data from the API
+  const [companies, setCompanies] = useState([]); // to store the companies data from the API
   const  [searchTerm, setSearchTerm] = React.useState("");
 
   // Fetch companies data from API
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await fetch("http://localhost:3000/companiesinfo"); // API URL
+        const response = await fetch("http://localhost:3000/companies"); // API URL
         const data = await response.json();
-        setCompaniesinfo(data); // store the data in the state
+        setCompanies(data); // store the data in the state
       }
       catch (error) {
         console.error("Error fetching data: ", error);
@@ -40,12 +41,13 @@ const CompaniesPage = () => {
   }, []);
 
   const handleCardClick = (companyName) => {
+
     console.log(`${companyName} button clicked`);
     // Future navigation or actions can go here
   };
 
   //Filter companies based on search term
-    const filteredCompanies = companiesinfo.filter((company) => {
+    const filteredCompanies = companies.filter((company) => {
         return company.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
 

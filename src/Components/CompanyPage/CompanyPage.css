@@ -1,0 +1,277 @@
+.company-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  justify-content: space-between;
+
+}
+
+.company-grid-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  }
+
+.Company-background {
+  display: flex;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Company-profile {
+    display: flex;
+    padding: 10px;
+    top: 60vh;
+    left: 10vw;
+    height: auto;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+.text-on-image{
+  margin-top: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1; 
+  color: white;
+  top: 5vh; 
+  left: 5vw;
+}
+
+.text-on-image h1 {
+  gap: 20px;
+  color: white;
+  font-size: 2.5rem;
+}
+.company-text {
+  margin-top: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  color: white;
+  padding: 10px 50px;
+  
+  
+}
+
+.background-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 50px 0;
+}
+
+.company-icon {
+margin-right: 10px;
+margin-left: 10px;
+}
+
+.info-text {
+font-size: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 150px;
+}
+
+.company-big-text{
+  font-weight: bold;
+  font-size: 40px;
+  padding: 20px;
+}
+
+.company-little-text {
+  margin: 0;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  flex: 1;
+}
+
+.company-start-search {
+  border: none;
+  color: white;
+  background-color: rgb(0, 217, 255);
+  border-radius: 20px;
+  width: 100%;
+  height: 60px;
+  margin-top: 50px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.company-start-search:hover {
+  border: none;
+  color:  rgb(0, 217, 255);
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 60px;
+  margin-top: 50px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.grid-company-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px; 
+  align-items: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.company-button-img {
+  border-width: 1px;
+  border-color: lightblue;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.company-buttons {
+  justify-content: space-between; 
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+}
+
+.company-buttons:hover {
+  color: darkblue;
+}
+
+.other-buttons {
+  flex: 1;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rows {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.about-company {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid cyan;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+}
+
+.about-company-header {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top:10px;
+}
+
+.alignment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 10%;
+  flex: 1;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.about-company-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.info-icon {
+  width: 30px;
+  height: auto;
+}
+
+.about-company-item h3 {
+  font-weight: bold;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-button {
+  margin-top: 40px;
+  border-width: 2px;
+  border-color: cyan;
+  color: cyan;
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.review-button:hover {
+  margin-top: 40px;
+  border-width: 2px;
+  border-color: white;
+  color: white;
+  background-color: cyan;
+  border-radius: 20px;
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.contacts-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20%;
+  margin-bottom: 20px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  width: 51%;
+  gap: 20%;
+}
