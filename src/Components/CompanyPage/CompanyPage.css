@@ -60,6 +60,10 @@
   border-radius: 15px; /* Slight rounding for the logo corners */
   padding: 10px; /* Padding inside the logo image */
   z-index: 10; /* Ensures the logo is above other content */
+<<<<<<< HEAD
 }
 
 
+=======
+}
+>>>>>>> b1bce53 (Made Some changes to database access methods.)

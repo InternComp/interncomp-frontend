@@ -16,10 +16,10 @@ const Header = ({ setActiveComponent }) => {
 
                 <div className="menu-container flex justify-center w-full">
                     <div className="menu flex gap-8">
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300"><Link to="/">Home</Link></button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" >Jobs</button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300" ><Link to="/Companies">Companies</Link></button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300">About Us</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/">Home</Link></button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/ComingSoon">Jobs</Link></button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/Companies">Companies</Link></button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/ComingSoon">About Us</Link></button>
                     </div>
                     
                 </div>
