@@ -88,7 +88,7 @@ const CompanyPage = () => {
         {/* Right column */}
         <div className="company-info-right w-2/5">
           <div className="company-buttons flex gap-4 mb-6">
-            <button className="button-primary">View Careers</button>
+            <a href={companyData.careerPages} className="button-primary">View Careers</a>
             <button className="button-primary">Company Reviews</button>
             <button className="button-secondary">
               <img src={Bookmark} alt="Bookmark" className="w-6 h-6" />
@@ -103,11 +103,11 @@ const CompanyPage = () => {
             <h2 className="text-xl font-bold mb-4">About Company</h2>
             <div className="flex items-center mb-4">
               <img src={Blue_Briefcase} alt="Briefcase" className="w-6 h-6 mr-2" />
-              <span>Primary Industry: {companyData.industry}</span>
+              <span>Primary Industry: {companyData.primaryIndustry}</span>
             </div>
             <div className="flex items-center mb-4">
               <img src={Blue_User} alt="Company size" className="w-6 h-6 mr-2" />
-              <span>Company Size: {companyData.size}</span>
+              <span>Company Size: {companyData.companySize}</span>
             </div>
             <div className="flex items-center">
               <img src={Blue_Calendar} alt="Founded" className="w-6 h-6 mr-2" />
@@ -124,7 +124,7 @@ const CompanyPage = () => {
             </div>
             <div className="mb-2">
               <h3 className="font-semibold">Email:</h3>
-              <p>{companyData.email}</p>
+              <p>{companyData.recruiterEmails}</p>
             </div>
             <div>
               <h3 className="font-semibold">Location:</h3>
