@@ -20,6 +20,7 @@ const Header = ({ setActiveComponent }) => {
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300" >Jobs</button>
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300" >Companies</button>
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300">About Us</button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300"><Link to="/UserProfilePage">User Profile</Link></button>
                     </div>
                     
                 </div>
