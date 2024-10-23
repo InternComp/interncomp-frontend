@@ -1,0 +1,63 @@
+/* Custom styles for company description page */
+.company-container {
+  padding-top: 20px;
+}
+
+.company-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.company-info-container {
+  gap: 20px;
+}
+
+.company-info-left {
+  flex: 1;
+}
+
+.company-info-right {
+  flex: 1;
+}
+
+.about-company-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-primary {
+  background-color: #1f2937;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+  background-color: #7dd3fc;
+}
+
+.button-secondary {
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.button-secondary img {
+  width: 24px;
+  height: 24px;
+}
+
+.company-logo {
+  position: absolute;
+  bottom: 5px; /* Distance from the bottom */
+  left: 20px;   /* Distance from the left */
+  width: 150px;  /* Adjust the size of the logo */
+  height: auto;
+  border-radius: 15px; /* Slight rounding for the logo corners */
+  padding: 10px; /* Padding inside the logo image */
+  z-index: 10; /* Ensures the logo is above other content */
+}
