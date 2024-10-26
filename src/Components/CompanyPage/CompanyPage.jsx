@@ -36,6 +36,8 @@ const CompanyPage = () => {
     linkedin: "Loading LinkedIn...",
 
   });
+  
+  const [isReviewVisible, setReviewVisible] = useState(false); // For toggling the write a review section
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -73,6 +75,10 @@ const CompanyPage = () => {
 
     fetchCompanyData();
   }, []);
+
+  const handleReviewToggle = () => { // hook for toggling the write a review section when the write a review button is pressed.
+    setReviewVisible((prev) => !prev);
+  };
 
   return (
     /* container for all elements on the page.*/
@@ -126,6 +132,7 @@ const CompanyPage = () => {
           <img src={tab} alt="tabs" className="company-button-img" />
         </button>
         </div>
+
         <div className = "about-company">
           <h2 className = 'about-company-header'>About Company</h2>
           <div className="company-info">
@@ -191,7 +198,14 @@ const CompanyPage = () => {
         </div>
         </div>
 
-        <button className="review-button">Write Review About Company</button>
+        <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
+        {isReviewVisible && (
+        <div className="about-company">
+              <h2 className = 'review-header'>Write Your Review</h2>
+              <textarea className= 'input-text' placeholder="Enter your review of the company here." />
+              <button className = "company-start-search">Submit Review</button>
+            </div>
+            )}
 
         </div>
         </div>

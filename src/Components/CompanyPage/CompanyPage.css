@@ -260,3 +260,14 @@ font-size: 20px;
   width: 51%;
   gap: 20%;
 }
+
+.review-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top:10px;
+}
+
+.input-text{
+margin-bottom: 20px;
+}
