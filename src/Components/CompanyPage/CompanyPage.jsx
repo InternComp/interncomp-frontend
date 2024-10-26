@@ -38,6 +38,7 @@ const CompanyPage = () => {
   });
   
   const [isReviewVisible, setReviewVisible] = useState(false); // For toggling the write a review section
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -73,8 +74,22 @@ const CompanyPage = () => {
       }
     };
 
-    fetchCompanyData();
-  }, []);
+    const fetchReviews = async () => { // For calling user reviews separately from the company data.
+      try {
+        const response = await fetch('http://localhost:3000/companies/:id/reviews', { 
+          method: 'GET',
+          credentials: 'include',
+        });
+        const reviewData = await response.json();
+        setReviews(reviewData);
+      } catch (error) {
+        console.error("Failed to fetch reviews:", error);
+      }
+    };
+
+    fetchCompanyData(); // Fetch CompanyData
+    fetchReviews(); // Fetch reviews
+}, []);
 
   const handleReviewToggle = () => { // hook for toggling the write a review section when the write a review button is pressed.
     setReviewVisible((prev) => !prev);
@@ -209,10 +224,21 @@ const CompanyPage = () => {
 
         </div>
         </div>
-        <div className= "user-reviews"> 
-        <h2 className = 'review-header'>User Written Reviews</h2>
 
-        </div>
+        <div className="user-reviews">
+        <h2 className="review-header">User Written Reviews</h2>
+        {reviews.length > 0 ? (
+        reviews.map((review, index) => (
+        <div key={index} className="review-item">
+        <h3 className="review-title">{review.title}</h3>
+        <p className="review-content">{review.content}</p>
+        <p className="review-author">- {review.author}</p>
+      </div>
+  ))
+) : (
+  <p>No reviews available.</p>
+)}
+</div>
         </div>
        
 
