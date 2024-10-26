@@ -209,6 +209,10 @@ const CompanyPage = () => {
 
         </div>
         </div>
+        <div className= "user-reviews"> 
+        <h2 className = 'review-header'>User Written Reviews</h2>
+
+        </div>
         </div>
        
 

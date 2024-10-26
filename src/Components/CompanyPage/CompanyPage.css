@@ -271,3 +271,15 @@ font-size: 20px;
 .input-text{
 margin-bottom: 20px;
 }
+
+.user-reviews {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid cyan;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
