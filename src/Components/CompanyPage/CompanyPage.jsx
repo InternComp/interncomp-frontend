@@ -169,6 +169,20 @@ const CompanyPage = () => {
             )}
         </div>
       </div>
+      <div className="user-reviews">
+        <h2 className="review-header">User Written Reviews</h2>
+        {reviews.length > 0 ? (
+        reviews.map((review, index) => (
+        <div key={index} className="review-item">
+        <h3 className="review-title">{review.title}</h3>
+        <p className="review-content">{review.content}</p>
+        <p className="review-author">- {review.author}</p>
+      </div>
+  ))
+) : (
+  <p>No reviews available.</p>
+)}
+</div>
     </div>
   );
 };
