@@ -151,8 +151,10 @@ const CompanyPage = () => {
               <p>{companyData.recruiterEmails}</p>
             </div>
             <div>
+              <div className = "mb-2">
               <h3 className="font-semibold">Location:</h3>
               <p>{companyData.location}</p>
+            </div>
             </div>
             <div className = "mb-2">
               <h3 className="font-semibold">LinkedIn:</h3>
