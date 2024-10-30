@@ -36,6 +36,9 @@ const CompanyPage = () => {
     linkedin: "",
   });
 
+  const [isReviewVisible, setReviewVisible] = useState(false); // For toggling the write a review section
+  const [reviews, setReviews] = useState([]);
+
   useEffect(() => {
     const fetchCompanyData = async () => {
       try {
@@ -50,8 +53,29 @@ const CompanyPage = () => {
         console.error("Error fetching data", error);
       }
     };
-    fetchCompanyData();
-  }, []);
+    
+    const fetchReviews = async () => { // For calling user reviews separately from the company data.
+      try {
+        const response = await fetch('http://localhost:3000/companies/:id/reviews', { 
+          method: 'GET',
+          credentials: 'include',
+        });
+        const reviewData = await response.json();
+        setReviews(reviewData);
+      } catch (error) {
+        console.error("Failed to fetch reviews:", error);
+      }
+    };
+
+    fetchCompanyData(); // Fetch CompanyData
+    fetchReviews(); // Fetch reviews
+}, []);
+
+  const handleReviewToggle = () => { // hook for toggling the write a review section when the write a review button is pressed.
+    setReviewVisible((prev) => !prev);
+  };
+
+  
 
   return (
     <div className="company-container flex flex-col gap-10 px-6">
