@@ -159,32 +159,6 @@ const CompanyPage = () => {
               <p>{companyData.linkedin}</p>
           </div>
           </div>
-          <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
-        {isReviewVisible && (
-        <div className="about-company">
-              <h2 className = 'review-header'>Write Your Review</h2>
-              <textarea className= 'input-text' placeholder="Enter your review of the company here." />
-              <button className = "company-start-search">Submit Review</button>
-            </div>
-            )}
-
-        </div>
-        </div>
-
-        <div className="user-reviews">
-        <h2 className="review-header">User Written Reviews</h2>
-        {reviews.length > 0 ? (
-        reviews.map((review, index) => (
-        <div key={index} className="review-item">
-        <h3 className="review-title">{review.title}</h3>
-        <p className="review-content">{review.content}</p>
-        <p className="review-author">- {review.author}</p>
-      </div>
-  ))
-) : (
-  <p>No reviews available.</p>
-)}
-</div>
         </div>
       </div>
     </div>
