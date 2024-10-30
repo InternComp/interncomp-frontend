@@ -159,6 +159,14 @@ const CompanyPage = () => {
               <p>{companyData.linkedin}</p>
           </div>
           </div>
+          <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
+        {isReviewVisible && (
+        <div className="about-company">
+              <h2 className = 'review-header'>Write Your Review</h2>
+              <textarea className= 'input-text' placeholder="Enter your review of the company here." />
+              <button className = "company-start-search">Submit Review</button>
+            </div>
+            )}
         </div>
       </div>
     </div>
