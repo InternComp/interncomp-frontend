@@ -130,6 +130,12 @@ const CompanyPage = () => {
               <h3 className="font-semibold">Location:</h3>
               <p>{companyData.location}</p>
             </div>
+            <div>
+              <div className = "mb-2">
+            <h3 className="font-semibold">LinkedIn:</h3>
+            <p>{companyData.linkedin}</p>
+          </div>
+          </div>
           </div>
         </div>
       </div>
