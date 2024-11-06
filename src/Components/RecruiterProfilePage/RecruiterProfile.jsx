@@ -1,0 +1,153 @@
+import React, { useState, useEffect } from "react";
+import UserIcon from "../../assets/UserIcon.png";
+import settingsIcon from "../../assets/settingsIcon.png";
+import saveButton from "../../assets/saveButton.png";
+import briefcaseIcon from "../../assets/briefcase.png";
+import reviewsIcon from "../../assets/review.png";
+
+
+
+const RecruiterProfilePage = () => {
+
+    const [loggedUsername, setLoggedUsername] = useState("");
+    const [loggedEmail, setLoggedEmail] = useState("");
+
+    // Fetch user data when the component mounts
+   /*  useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/auth/protected', {
+                    method: 'GET',
+                    credentials: 'include', // Assuming cookies need to be included with the request
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setLoggedUsername(data.username);
+                    setLoggedEmail(data.email);
+                } else {
+                    throw new Error('Failed to fetch user data');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        fetchUserData();
+    }, []); // Empty dependency array ensures this runs only once when the component mounts */
+
+    const [formData, setFormData] = useState({
+        fullName: "",
+        company: "",
+        location: "",
+        email:"",
+    })
+
+ /*    const [pageOptions, setPageOptions] = useState({
+        pofileedit,
+        jobedit,
+        reviewedit,
+    }) */
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
+    }
+
+    const [isRecruiterEdit, setIsRecruiterEdit] = useState(false);
+
+    const handleEdit = () => {
+        setIsRecruiterEdit(true);
+    };
+
+    const handleSave = () => {
+        setFormData(formData);
+        setIsRecruiterEdit(false);
+    }
+
+    return (
+        <div className="grid grid-cols-12 grid-flow-row bg-[#F3F3F3] h-[750px] ">
+            <div className="grid grid-rows-9 pt-5 bg-white w-[80px] justify-items-center h-[750px]  col-start-1 col-span-1 rounded-r-lg ">{/* left vertical nav*/}
+                <div className="row-start-1 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={UserIcon} alt="Edit Profile"/></div>
+                <div className="row-start-2 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={briefcaseIcon} alt="Create Jobs"/></div>
+                <div className="row-start-3 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={settingsIcon} /></div>
+
+            </div>
+
+            <div className="grid grid-rows-6 col-start-2 col-span-11 pb-10 pr-5 "> {/* right side content*/}
+                <div className="rounded-3xl pt-5 text-2xl">Welcome, Recruiter</div> {/* top nav*/}
+
+                <div className="rounded-3xl bg-white row-start-2 row-span-5 grid grid-rows-4 p-10"> {/* main content*/}
+                    <div className=" grid grid-cols-2 ">
+                        <div className="col-start-1 col-span-1 flex">
+                            <div className="rounded-full w-[120px] h-[120px] bg-[#F3F3F3]"></div>
+                            <div className="ml-10">
+                                <p className="mt-10"> {formData.fullName||loggedUsername}<br></br></p>
+
+                                <p className="mt-5"> { loggedEmail || "UserEmail@blingblaow.ca"}</p>
+                            </div>
+
+                        </div>
+                        <div className="justify-self-end">
+                            {!isRecruiterEdit ? (<button type="button" onClick={handleEdit} className="text-white  rounded-xl hover:bg-blue-400  bg-blue-500 h-[50px] w-[100px]">Edit</button>)
+                                : (<button type="button" onClick={handleSave} className="text-white justify-self-end rounded-xl hover:bg-green-400  bg-green-500 h-[50px] w-[100px]">Save</button>)
+                            }
+                        </div>
+
+
+                    </div>
+                    <div className="grid grid-cols-3 pt-5">
+
+                        <label className="flex flex-col "> Full name
+                            {isRecruiterEdit ?
+                                (<input type="text" 
+                                    name="fullName"
+                                    value={ formData.fullName} 
+                                    onChange={handleChange} 
+                                    placeholder="Your Full Name" className=" bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
+                                (<div className="mt-3  w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
+                                    { loggedUsername || formData.fullName || "Full Name"}
+                                </div>)}
+                        </label>
+
+                        
+
+                        <label className="flex flex-col"> Company
+                            {isRecruiterEdit ?
+                                (<input type="text"
+                                    name="Your Company"
+                                    value={formData.company}
+                                    onChange={handleChange}
+                                    placeholder="Your Progam"
+                                    className="bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
+                                (<div className="mt-3 w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
+                                    {formData.company || "Program of Study"}
+                                </div>)}
+                        </label>
+
+                        <label className="flex flex-col "> Location
+                            {isRecruiterEdit ?
+                                (<input type="text"
+                                    name="location"
+                                    value={formData.location}
+                                    onChange={handleChange}
+                                    placeholder="Your Location"
+                                    className="bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
+                                (<div className="mt-3 w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
+                                    {formData.location || "Location"}
+                                </div>)}
+                        </label>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    );
+
+};
+
+export default RecruiterProfilePage;
