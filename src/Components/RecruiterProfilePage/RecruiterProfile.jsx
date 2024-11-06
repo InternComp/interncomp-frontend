@@ -3,17 +3,36 @@ import UserIcon from "../../assets/UserIcon.png";
 import settingsIcon from "../../assets/settingsIcon.png";
 import saveButton from "../../assets/saveButton.png";
 import briefcaseIcon from "../../assets/briefcase.png";
-import reviewsIcon from "../../assets/review.png";
-
-
 
 const RecruiterProfilePage = () => {
-
     const [loggedUsername, setLoggedUsername] = useState("");
     const [loggedEmail, setLoggedEmail] = useState("");
+    const [currentView, setCurrentView] = useState("profile"); // State for switching views
 
-    // Fetch user data when the component mounts
-   /*  useEffect(() => {
+    const [formData, setFormData] = useState({
+        fullName: "",
+        company: "",
+        location: "",
+        email: "",
+    });
+
+    const [isRecruiterEdit, setIsRecruiterEdit] = useState(false);
+
+    const handleEdit = () => setIsRecruiterEdit(true);
+    const handleSave = () => {
+        setFormData(formData);
+        setIsRecruiterEdit(false);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
+    };
+
+    useEffect(() => {
         const fetchUserData = async () => {
             try {
                 const response = await fetch('http://localhost:3000/auth/protected', {
@@ -32,53 +51,14 @@ const RecruiterProfilePage = () => {
             }
         };
         fetchUserData();
-    }, []); // Empty dependency array ensures this runs only once when the component mounts */
+    }, []); // Empty dependency array ensures this runs only once when the component mounts
 
-    const [formData, setFormData] = useState({
-        fullName: "",
-        company: "",
-        location: "",
-        email:"",
-    })
 
- /*    const [pageOptions, setPageOptions] = useState({
-        pofileedit,
-        jobedit,
-        reviewedit,
-    }) */
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value,
-        }));
-    }
-
-    const [isRecruiterEdit, setIsRecruiterEdit] = useState(false);
-
-    const handleEdit = () => {
-        setIsRecruiterEdit(true);
-    };
-
-    const handleSave = () => {
-        setFormData(formData);
-        setIsRecruiterEdit(false);
-    }
-
-    return (
-        <div className="grid grid-cols-12 grid-flow-row bg-[#F3F3F3] h-[750px] ">
-            <div className="grid grid-rows-9 pt-5 bg-white w-[80px] justify-items-center h-[750px]  col-start-1 col-span-1 rounded-r-lg ">{/* left vertical nav*/}
-                <div className="row-start-1 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={UserIcon} alt="Edit Profile"/></div>
-                <div className="row-start-2 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={briefcaseIcon} alt="Create Jobs"/></div>
-                <div className="row-start-3 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={settingsIcon} /></div>
-
-            </div>
-
-            <div className="grid grid-rows-6 col-start-2 col-span-11 pb-10 pr-5 "> {/* right side content*/}
-                <div className="rounded-3xl pt-5 text-2xl">Welcome, Recruiter</div> {/* top nav*/}
-
-                <div className="rounded-3xl bg-white row-start-2 row-span-5 grid grid-rows-4 p-10"> {/* main content*/}
+    const renderMainContent = () => {
+        switch (currentView) {
+            case "profile":
+                return (
+                    <div className="rounded-3xl bg-white row-start-2 row-span-5 grid grid-rows-4 p-10"> {/* main content*/}
                     <div className=" grid grid-cols-2 ">
                         <div className="col-start-1 col-span-1 flex">
                             <div className="rounded-full w-[120px] h-[120px] bg-[#F3F3F3]"></div>
@@ -111,22 +91,20 @@ const RecruiterProfilePage = () => {
                                 </div>)}
                         </label>
 
-                        
-
-                        <label className="flex flex-col"> Company
+                        <label className="flex flex-col mb-5">Company
                             {isRecruiterEdit ?
                                 (<input type="text"
-                                    name="Your Company"
+                                    name="company"
                                     value={formData.company}
                                     onChange={handleChange}
-                                    placeholder="Your Progam"
+                                    placeholder="Your Company"
                                     className="bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
                                 (<div className="mt-3 w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
-                                    {formData.company || "Program of Study"}
+                                    {(formData.company) || "Company"}
                                 </div>)}
                         </label>
 
-                        <label className="flex flex-col "> Location
+                        <label className="flex flex-col"> Location
                             {isRecruiterEdit ?
                                 (<input type="text"
                                     name="location"
@@ -140,14 +118,68 @@ const RecruiterProfilePage = () => {
                         </label>
 
                     </div>
+                    <div className="grid grid-cols-3 pt-5">
+                        <label className="flex flex-col "> Email
+                            {isRecruiterEdit ?
+                                (<input type="text"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="Your Location"
+                                    className="bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
+                                (<div className="mt-3 w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
+                                    {formData.email || "Email"}
+                                </div>)}
+                        </label>
+
+                        
+                    </div>
+
+
+
+
+
+
                 </div>
+                );
+            case "jobs":
+                return (
+                    <div className="rounded-3xl bg-white row-start-2 row-span-5 p-10">
+                        <h2>Job Postings</h2>
+                        <p>Create and manage job listings here.</p>
+                    </div>
+                );
+            case "settings":
+                return (
+                    <div className="rounded-3xl bg-white row-start-2 row-span-5 p-10">
+                        <h2>Settings</h2>
+                        <p>Adjust your profile and account settings here.</p>
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
 
+    return (
+        <div className="grid grid-cols-12 grid-flow-row bg-[#F3F3F3] h-[750px]">
+            <div className="grid grid-rows-9 pt-5 bg-white w-[80px] justify-items-center h-[750px] col-start-1 col-span-1 rounded-r-lg">
+                <div onClick={() => setCurrentView("profile")} className="row-start-1 w-[80px] h-[80px] hover:bg-blue-100 p-5 cursor-pointer">
+                    <img src={UserIcon} alt="Edit Profile" />
+                </div>
+                <div onClick={() => setCurrentView("jobs")} className="row-start-2 w-[80px] h-[80px] hover:bg-blue-100 p-5 cursor-pointer">
+                    <img src={briefcaseIcon} alt="Create Jobs" />
+                </div>
+                <div onClick={() => setCurrentView("settings")} className="row-start-3 w-[80px] h-[80px] hover:bg-blue-100 p-5 cursor-pointer">
+                    <img src={settingsIcon} alt="Settings" />
+                </div>
             </div>
-
-
+            <div className="grid grid-rows-6 col-start-2 col-span-11 pb-10 pr-5">
+                <div className="rounded-3xl pt-5 text-2xl">Welcome, Recruiter</div>
+                {renderMainContent()}
+            </div>
         </div>
     );
-
 };
 
 export default RecruiterProfilePage;
