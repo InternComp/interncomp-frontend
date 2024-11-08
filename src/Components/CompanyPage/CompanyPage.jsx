@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import React from "react";
-import './CompanyPage.css'; // Separate CSS file for custom styles
+import './CompanyPage.css'; // Custom styles
 import Background from '../../assets/Colab_Background.png';
 import profile from '../../assets/Colab_profile.png';
-import logo from '../../assets/New_Briefcase.png';
-import clock from '../../assets/clock.png';
-import clip from '../../assets/clip.png';
-import pin from '../../assets/map-pin.png';
 import Bookmark from '../../assets/Bookmark.png';
 import tab from '../../assets/tab.png';
 import Blue_Briefcase from '../../assets/Blue_Briefcase.png';
@@ -25,7 +21,7 @@ const CompanyPage = () => {
     location: "",
     benefits: "",
     email: "",
-    image: "", 
+    image: "",
     jobTitle: "",
     salary: "",
     jobType: "",
@@ -34,10 +30,12 @@ const CompanyPage = () => {
     position: "",
     culture: "",
     linkedin: "",
+    reviews: ""
   });
 
-  const [isReviewVisible, setReviewVisible] = useState(false); // For toggling the write a review section
-  const [reviews, setReviews] = useState([]);
+  const [isReviewVisible, setReviewVisible] = useState(false);
+  const [reviewContents, setReviews] = useState([]);
+  const [newReview, setNewReview] = useState(""); // New state for the review text
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -50,32 +48,58 @@ const CompanyPage = () => {
           image: data.image || profile,
         });
       } catch (error) {
-        console.error("Error fetching data", error);
+        console.error("Error fetching company data", error);
       }
     };
-    
-    const fetchReviews = async () => { // For calling user reviews separately from the company data.
+
+    const fetchReviews = async () => {
       try {
-        const response = await fetch('http://localhost:3000/companies/:id/reviews', { 
-          method: 'GET',
-          credentials: 'include',
-        });
-        const reviewData = await response.json();
-        setReviews(reviewData);
+        const response = await fetch(`http://localhost:3000/api/reviews/company/${id}`);
+        const data = await response.json();
+        setReviews(data);
       } catch (error) {
-        console.error("Failed to fetch reviews:", error);
+        console.error("Error fetching reviews", error);
       }
     };
 
-    fetchCompanyData(); // Fetch CompanyData
-    fetchReviews(); // Fetch reviews
-}, []);
+    fetchCompanyData();
+    fetchReviews();
+  }, [id]);
 
-  const handleReviewToggle = () => { // hook for toggling the write a review section when the write a review button is pressed.
+  const handleReviewToggle = () => {
     setReviewVisible((prev) => !prev);
   };
 
-  
+  const handleSubmitReview = async () => {
+    const reviewData = {
+      reviewer: "Chinedu",
+      rating: 3,
+      text: newReview,
+      companyName: companyData.name,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        const createdReview = await response.json();
+        setReviews([...reviewContents, createdReview]);
+        setNewReview(""); // Reset review input
+        setReviewVisible(false); // Close review form
+      } else {
+        console.error("Error submitting review");
+      }
+    } catch (error) {
+      console.error("Error submitting review", error);
+    }
+  };
 
   return (
     <div className="company-container flex flex-col gap-10 px-6">
@@ -97,12 +121,10 @@ const CompanyPage = () => {
             <h2 className="text-2xl font-bold">Company Description</h2>
             <p className="mt-2">{companyData.description}</p>
           </div>
-
           <div className="mb-6">
             <h2 className="text-2xl font-bold">Company Culture</h2>
             <p className="mt-2">{companyData.culture}</p>
           </div>
-
           <div className="mb-6">
             <h2 className="text-2xl font-bold">Company Benefits</h2>
             <p className="mt-2">{companyData.benefits}</p>
@@ -142,49 +164,47 @@ const CompanyPage = () => {
           {/* Contact Info */}
           <div className="about-company-card bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-bold mb-4">Contacts</h2>
-            <div className="mb-2">
-              <h3 className="font-semibold">Phone:</h3>
-              <p>{companyData.phone}</p>
-            </div>
-            <div className="mb-2">
-              <h3 className="font-semibold">Email:</h3>
-              <p>{companyData.recruiterEmails}</p>
-            </div>
-            <div>
-              <div className = "mb-2">
-              <h3 className="font-semibold">Location:</h3>
-              <p>{companyData.location}</p>
-            </div>
-            </div>
-            <div className = "mb-2">
-              <h3 className="font-semibold">LinkedIn:</h3>
-              <p>{companyData.linkedin}</p>
-          </div>
+            <p><strong>Phone:</strong> {companyData.phone}</p>
+            <p><strong>Email:</strong> {companyData.recruiterEmails}</p>
+            <p><strong>Location:</strong> {companyData.location}</p>
+            <p><strong>LinkedIn:</strong> {companyData.linkedin}</p>
           </div>
           <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
-        {isReviewVisible && (
-        <div className="about-company">
-              <h2 className = 'review-header'>Write Your Review</h2>
-              <textarea className= 'input-text' placeholder="Enter your review of the company here." />
-              <button className = "company-start-search">Submit Review</button>
+          {isReviewVisible && (
+            <div className="about-company">
+              <h2 className='review-header'>Write Your Review</h2>
+              <textarea 
+                className='input-text' 
+                placeholder="Enter your review of the company here."
+                value={newReview}
+                onChange={(e) => setNewReview(e.target.value)}
+              />
+              <button 
+                className="company-start-search"
+                onClick={handleSubmitReview}
+              >
+                Submit Review
+              </button>
             </div>
-            )}
+          )}
         </div>
       </div>
+
+      {/* User Reviews */}
       <div className="user-reviews">
         <h2 className="review-header">User Written Reviews</h2>
-        {reviews.length > 0 ? (
-        reviews.map((review, index) => (
-        <div key={index} className="review-item">
-        <h3 className="review-title">{review.title}</h3>
-        <p className="review-content">{review.content}</p>
-        <p className="review-author">- {review.author}</p>
+        {reviewContents.length > 0 ? (
+          reviewContents.map((review, index) => (
+            <div key={index} className="review-item">
+              <h3 className="review-title">{review.reviewer}</h3>
+              <p className="review-content">{review.text}</p>
+              <p className="review-rating">Rating: {review.rating}</p>
+            </div>
+          ))
+        ) : (
+          <p>No reviews available.</p>
+        )}
       </div>
-  ))
-) : (
-  <p>No reviews available.</p>
-)}
-</div>
     </div>
   );
 };
