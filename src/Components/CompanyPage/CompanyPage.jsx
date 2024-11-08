@@ -72,7 +72,7 @@ const CompanyPage = () => {
 
   const handleSubmitReview = async () => {
     const reviewData = {
-      reviewer: "Chinedu",
+      reviewer: "Anonymous",
       rating: 3,
       text: newReview,
       companyName: companyData.name,
