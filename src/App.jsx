@@ -6,6 +6,9 @@ import Home from "./Components/Home/Home";
 import CompaniesPage from "./Components/CompaniesPage/CompaniesPage";
 import WelcomeNewUserPage from "./Components/WelcomeNewUserPage/WelcomeNewUserPage";
 import CompanyPage from './Components/CompanyPage/CompanyPage';
+import Jobs from './Components/JobPage/Jobs';
+import UserProfilePage from './Components/UserProfilePage/UserProfilePage';
+
 const App = () => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -19,6 +22,8 @@ const App = () => {
             <Route path="/WelcomeNewUserPage" element={<WelcomeNewUserPage />} />
             <Route path="/Companies" element={<CompaniesPage />} />
             <Route path="/Companies/:id" element={<CompanyPage />} />
+            <Route path="/UserProfilePage" element={<UserProfilePage />} />
+            <Route path="/Jobs" element={<Jobs />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </div>
