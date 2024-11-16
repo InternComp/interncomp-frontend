@@ -135,18 +135,30 @@ const RecruiterProfilePage = () => {
                         
                     </div>
 
-
-
-
-
-
                 </div>
                 );
             case "jobs":
                 return (
                     <div className="rounded-3xl bg-white row-start-2 row-span-5 p-10">
                         <h2>Job Postings</h2>
-                        <p>Create and manage job listings here.</p>
+                       <div className="grid grid-cols-3 grid-rows-5 ">
+                            <div className="col-start-3 row-start-1 justify-self-end">
+                                <button className=" text-white  rounded-xl hover:bg-blue-400  bg-blue-500 h-[50px] w-[100px] ">Create Job</button>
+                            </div>
+                            <div className="col-start-1 col-span-3 row-start-2">
+                                <div className="grid grid-cols-3">
+                                    <div className="col-start-1 col-span-1">
+                                        <p>Job Title</p>
+                                    </div>
+                                    <div className="col-start-2 col-span-1">
+                                        <p>Company</p>
+                                    </div>
+                                    <div className="col-start-3 col-span-1">
+                                        <p>Location</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 );
             case "settings":
