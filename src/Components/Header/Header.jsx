@@ -23,10 +23,12 @@ const Header = ({ setActiveComponent }) => {
                     </div>
                     
                 </div>
-                <button className="signup"><Link to="/LoginPage">SignUp</Link>
+                <Link to="/LoginPage">
+                <button className="signup">SignUp
                     <div style={{padding:'5px'}}> </div> 
                     <img src={Paper} alt="Paper Airplane" className="button-img" />
                 </button>
+                </Link>
             </div>
         </div>  
     )
