@@ -19,7 +19,7 @@ const Header = ({ setActiveComponent }) => {
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/">Home</Link></button>
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/ComingSoon">Jobs</Link></button>
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/Companies">Companies</Link></button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/ComingSoon">About Us</Link></button>
+                        <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/AboutUs">About Us</Link></button>
                     </div>
                     
                 </div>
