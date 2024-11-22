@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+
+
+const [open, setOpen] = useState(false);
+
+
 const JobPost = () => {
 
     const [jobData, setJobData] = useState({
@@ -12,8 +17,16 @@ const JobPost = () => {
         experience: "",
         skills: "",
     });
-};
 
+    return (
+
+            <div></div>
+
+
+
+
+    );
+};
 
 
 
