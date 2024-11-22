@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 const WelcomeNewUserPage = () => {
     const [username, setUsername] = useState('');
     const [user, setUser] = useState(null);
@@ -47,11 +46,15 @@ const WelcomeNewUserPage = () => {
     }, [userId]);
 
     return (
-        <div className="container" style={{ paddingBottom: '200px' }}>
+        <div className="container" style={{ paddingBottom: '700px' }}>
+            <div style={{paddingLeft:'0px', paddingRight:"100px", paddingTop:"200px"}}>
             <div className="text">Hello {username} 🚀</div>
-            {user && (
+            <div className="text">Let's get your Internship journey started! </div>
+            </div>
+
+            {/* {user && (
                 <div className="text">ID: {user.id}, Email: {user.email}, Program: {user.program}</div>
-            )}
+            )} */}
         </div>
     );
 };

@@ -6,10 +6,11 @@ import briefcaseIcon from "../../assets/briefcase.png";
 import reviewsIcon from "../../assets/review.png";
 
 
-
 const UserProfilePage = () => {
 
     const [loggedUsername, setLoggedUsername] = useState("");
+    const [user, setUser] = useState(null);
+    const [userId, setUserId] = useState(null);
     const [loggedEmail, setLoggedEmail] = useState("");
 
     // Fetch user data when the component mounts
@@ -24,6 +25,7 @@ const UserProfilePage = () => {
                     const data = await response.json();
                     setLoggedUsername(data.username);
                     setLoggedEmail(data.email);
+                    setUserId(data.userid)
                 } else {
                     throw new Error('Failed to fetch user data');
                 }
@@ -34,15 +36,58 @@ const UserProfilePage = () => {
         fetchUserData();
     }, []); // Empty dependency array ensures this runs only once when the component mounts
 
+        // Fetch detailed user profile using 'userId'
+        useEffect(() => {
+            if (!userId) return; // Ensure 'userId' is present
+            const fetchUserProfile = async () => {
+                try {
+                    const response = await fetch(`http://localhost:3000/user/${userId}`);
+                    if (response.ok) {
+                        const userInfo = await response.json();
+                        setUser(userInfo);
+                    } else {
+                        throw new Error('Failed to fetch user profile');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            };
+            fetchUserProfile();
+        }, [userId]);
+
+    // const [formData, setFormData] = useState({
+    //     name: "",
+    //     username: "",
+    //     programOfStudy: "",
+    //     location: "",
+    //     institution: "",
+    //     gender: "X",
+    //     email:"",
+    // })
+
     const [formData, setFormData] = useState({
-        fullName: "",
-        username: "",
-        programOfStudy: "",
+        name: "",
+        program: "",
+        university: "",
         location: "",
         institution: "",
         gender: "X",
         email:"",
     })
+    useEffect(() => {
+        if (user) {
+            setFormData({
+                name: user.name || "",
+                program: user.program || "",
+                university: user.university || "",
+                location: user.location || "",
+                institution: user.institution || "",
+                gender: user.gender || "X",
+                email: user.email || "",
+            });
+        }
+    }, [user]);
+    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -58,9 +103,25 @@ const UserProfilePage = () => {
         setIsUserEdit(true);
     };
 
-    const handleSave = () => {
-        setFormData(formData);
-        setIsUserEdit(false);
+    const handleSave = async () => {
+        try{
+            const response =await fetch(`http://localhost:3000/user/${userId}`,{
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            const updatedUser=await response.json()
+            console.log(formData);
+            console.log(updatedUser)
+            setFormData(updatedUser.data);
+            setIsUserEdit(false);
+        }
+        
+        catch(e){
+            console.error(e)
+        }
     }
 
     return (
@@ -74,16 +135,16 @@ const UserProfilePage = () => {
             </div>
 
             <div className="grid grid-rows-6 col-start-2 col-span-11 pb-10 pr-5 "> {/* right side content*/}
-                <div className="rounded-3xl pt-5 text-2xl">Welcome, {formData.username || " User"}</div> {/* top nav*/}
+                <div className="rounded-3xl pt-5 text-2xl">Welcome, {formData.name || " User"}</div> {/* top nav*/}
 
                 <div className="rounded-3xl bg-white row-start-2 row-span-5 grid grid-rows-4 p-10"> {/* main content*/}
                     <div className=" grid grid-cols-2 ">
                         <div className="col-start-1 col-span-1 flex">
                             <div className="rounded-full w-[120px] h-[120px] bg-[#F3F3F3]"></div>
                             <div className="ml-10">
-                                <p className="mt-10"> {formData.fullName||loggedUsername}<br></br></p>
+                                <p className="mt-10"> {loggedUsername||" "}<br></br></p>
 
-                                <p className="mt-5"> { loggedEmail || "UserEmail@blingblaow.ca"}</p>
+                                <p className="mt-5"> { loggedEmail}</p>
                             </div>
 
                         </div>
@@ -100,16 +161,16 @@ const UserProfilePage = () => {
                         <label className="flex flex-col "> Full name
                             {isUserEdit ?
                                 (<input type="text" 
-                                    name="fullName"
-                                    value={ formData.fullName} 
+                                    name="name"
+                                    value={ formData.name} 
                                     onChange={handleChange} 
                                     placeholder="Your Full Name" className=" bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
                                 (<div className="mt-3  w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
-                                    { loggedUsername || formData.fullName || "Full Name"}
+                                    {formData.name || "Full Name"}
                                 </div>)}
                         </label>
 
-                        <label className="flex flex-col mb-5">Username
+                        {/* <label className="flex flex-col mb-5">Username
                             {isUserEdit ?
                                 (<input type="text"
                                     name="username"
@@ -120,18 +181,18 @@ const UserProfilePage = () => {
                                 (<div className="mt-3 w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
                                     {(formData.username) || "Username"}
                                 </div>)}
-                        </label>
+                        </label> */}
 
                         <label className="flex flex-col"> Program of Study
                             {isUserEdit ?
                                 (<input type="text"
-                                    name="programOfStudy"
-                                    value={formData.programOfStudy}
+                                    name="program"
+                                    value={formData.program}
                                     onChange={handleChange}
                                     placeholder="Your Progam"
                                     className="bg-[#F3F3F3] pl-3 w-[70%] h-[50px] rounded-xl mt-3 hover:border-2 border-blue-300"></input>) :
                                 (<div className="mt-3 w-[70%] h-[50px] pt-3 pl-3 bg-[#F3F3F3] rounded-xl">
-                                    {formData.programOfStudy || "Program of Study"}
+                                    {formData.program || "Program of Study"}
                                 </div>)}
                         </label>
 
