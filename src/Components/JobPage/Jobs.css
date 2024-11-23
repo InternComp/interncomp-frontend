@@ -11,6 +11,18 @@
   align-items: center; /* Center align items */
 }
 
+.pagination {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white; /* Background color for better visibility */
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
 .job-detail-modal .bg-white {
   max-height: 70vh; /* Limits the height of the modal to 80% of the viewport */
   overflow-y: auto; /* Adds vertical scrollbar if content overflows */

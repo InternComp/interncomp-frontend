@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+}
+
 :root{
   font-family: 'Poppins', sans-serif;
 }

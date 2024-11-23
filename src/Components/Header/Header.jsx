@@ -18,6 +18,7 @@ const Header = ({ setActiveComponent }) => {
                     <div className="menu flex gap-8">
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/">Home</Link></button>
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/Jobs">Jobs</Link></button>
+                        {/*<button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/AddJobs">AddJobs</Link></button>*/}
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg" ><Link to="/Companies">Companies</Link></button>
                         <button className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg"><Link to="/ComingSoon">About Us</Link></button>
                     </div>
