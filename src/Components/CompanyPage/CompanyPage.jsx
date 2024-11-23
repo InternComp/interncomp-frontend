@@ -129,6 +129,21 @@ const CompanyPage = () => {
             <h2 className="text-2xl font-bold">Company Benefits</h2>
             <p className="mt-2">{companyData.benefits}</p>
           </div>
+           {/* User Reviews */}
+      <div className="user-reviews">
+        <h2 className="review-header">User Written Reviews</h2>
+        {reviewContents.length > 0 ? (
+          reviewContents.map((review, index) => (
+            <div key={index} className="review-item">
+              <h3 className="review-title">{review.reviewer}</h3>
+              <p className="review-content">{review.text}</p>
+              <p className="review-rating">Rating: {review.rating}</p>
+            </div>
+          ))
+        ) : (
+          <p>No reviews available.</p>
+        )}
+      </div>
         </div>
 
         {/* Right column */}
@@ -190,21 +205,7 @@ const CompanyPage = () => {
         </div>
       </div>
 
-      {/* User Reviews */}
-      <div className="user-reviews">
-        <h2 className="review-header">User Written Reviews</h2>
-        {reviewContents.length > 0 ? (
-          reviewContents.map((review, index) => (
-            <div key={index} className="review-item">
-              <h3 className="review-title">{review.reviewer}</h3>
-              <p className="review-content">{review.text}</p>
-              <p className="review-rating">Rating: {review.rating}</p>
-            </div>
-          ))
-        ) : (
-          <p>No reviews available.</p>
-        )}
-      </div>
+
     </div>
   );
 };
