@@ -11,6 +11,33 @@ import Blue_User from '../../assets/Blue_User.png';
 import Blue_Calendar from '../../assets/Blue_Calendar.png';
 
 const CompanyPage = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
+  useEffect(() => {
+
+    const checkLoginStatus_and_getId = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/auth/protected', {
+                method: 'GET',
+                credentials: 'include', // Assuming cookies need to be included with the request
+            });
+            if (response.ok) {
+              setIsLoggedIn(true);
+              const data = await response.json();
+              setUserId(data.userid)
+            }
+            else{
+              setIsLoggedIn(false);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setIsLoggedIn(false);
+        }
+    };
+    
+    checkLoginStatus_and_getId();
+  }, [userId]); 
+
   const { id } = useParams();
   const [companyData, setCompanyData] = useState({
     name: "",
@@ -54,9 +81,11 @@ const CompanyPage = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/reviews/company/${id}`);
+        const response = await fetch(`http://localhost:3000/companies/${id}`);
         const data = await response.json();
-        setReviews(data);
+        // console.log(data)
+        // console.log(data.reviews)
+        setReviews(data.reviews);
       } catch (error) {
         console.error("Error fetching reviews", error);
       }
@@ -72,20 +101,20 @@ const CompanyPage = () => {
 
   const handleSubmitReview = async () => {
     const reviewData = {
-      reviewer: "Anonymous",
-      rating: 3,
-      text: newReview,
-      companyName: companyData.name,
+      reviewerId: userId,
+      rating: "FIVE",
+      review_text: newReview,
+      companyId: id, //company id 
     };
+    console.log(reviewData)
 
     try {
-      const response = await fetch("http://localhost:3000/api/reviews", {
+      const response = await fetch(`http://localhost:3000/companies/${id}/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(reviewData),
-        credentials: "include",
       });
 
       if (response.ok) {
@@ -169,24 +198,33 @@ const CompanyPage = () => {
             <p><strong>Location:</strong> {companyData.location}</p>
             <p><strong>LinkedIn:</strong> {companyData.linkedin}</p>
           </div>
-          <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
-          {isReviewVisible && (
-            <div className="about-company">
-              <h2 className='review-header'>Write Your Review</h2>
-              <textarea 
-                className='input-text' 
-                placeholder="Enter your review of the company here."
-                value={newReview}
-                onChange={(e) => setNewReview(e.target.value)}
-              />
-              <button 
-                className="company-start-search"
-                onClick={handleSubmitReview}
-              >
-                Submit Review
-              </button>
-            </div>
-          )}
+        {/* using conditional rendering we make sure that the write a review button only appears once the user is logged in */}
+        {isLoggedIn && (
+                  <div>
+                  <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
+                  {isReviewVisible && (
+                    <div className="about-company">
+                      <h2 className='review-header'>Write Your Review</h2>
+                      <textarea 
+                        className='input-text' 
+                        placeholder="Enter your review of the company here."
+                        value={newReview}
+                        onChange={(e) => setNewReview(e.target.value)}
+                      />
+                      <button 
+                        className="company-start-search"
+                        onClick={handleSubmitReview}
+                      >
+                        Submit Review
+                      </button>
+                    </div>
+                  )}
+                </div>
+        )}
+
+
+
+
         </div>
       </div>
 
@@ -197,7 +235,7 @@ const CompanyPage = () => {
           reviewContents.map((review, index) => (
             <div key={index} className="review-item">
               <h3 className="review-title">{review.reviewer}</h3>
-              <p className="review-content">{review.text}</p>
+              <p className="review-content">{review.review}</p>
               <p className="review-rating">Rating: {review.rating}</p>
             </div>
           ))
