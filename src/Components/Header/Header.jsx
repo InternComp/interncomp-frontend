@@ -43,14 +43,27 @@ const Header = ({ setActiveComponent }) => {
                     </div>
                 </div>
 
+                <Link to={isLoggedIn? "/UserProfilePage":"/LoginPage"} className="signup">
+                    <button>
+                    <div style={{padding:'0px', display:"flex"}}>
+                        {/* this is basically if else statement if loggen in then profile else signup */}
+                        {isLoggedIn? "Profile" : "SignUp"}
+                        <div style={{paddingLeft:'10px',paddingTop:'2px', display:"flex"}}>
+                            <img src={Paper} alt="Paper Airplane" className="button-img" />
+                        </div>
+                    </div>
+                    </button>
+                </Link>
+{/* 
                 <button className="signup">
                     {isLoggedIn ? (
                         <Link to="/UserProfilePage">Profile</Link>
                     ) : (
                         <Link to="/LoginPage">SignUp</Link>
                     )}
+                    <div style={{padding:'5px'}}> </div> 
                     <img src={Paper} alt="Paper Airplane" className="button-img" />
-                </button>
+                </button> */}
             </div>
         </div>  
     );
