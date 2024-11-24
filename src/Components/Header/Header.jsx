@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import Paper from '../Assets/Icons/Paper.png';
+import UserIcon from '../../assets/placeholderUser.png';
 import { Link } from 'react-router-dom';
 
 const Header = ({ setActiveComponent }) => {
@@ -36,24 +37,37 @@ const Header = ({ setActiveComponent }) => {
 
                 <div className="menu-container flex justify-center w-full">
                     <div className="menu flex gap-8">
-                        <Link to="/" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">Home</Link>
-                        <Link to="/Jobs" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">Jobs</Link>
-                        <Link to="/Companies" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">Companies</Link>
-                        <Link to="/ComingSoon" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">About Us</Link>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300"><Link to="/UserProfilePage">User Profile</Link></button>
-                        <button className="menuList text-[#6f6f6f] hover:text-blue-300"><Link to="/RecruiterProfilePage">Recruiter Profile</Link></button>
+                        <Link to="/" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg transition ease-in-out delay-50 hover:-translate-y-1">Home</Link>
+                        <Link to="/Jobs" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg transition ease-in-out delay-50 hover:-translate-y-1">Jobs</Link>
+                        <Link to="/Companies" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg transition ease-in-out delay-50 hover:-translate-y-1">Companies</Link>
+                        <Link to="/ComingSoon" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg transition ease-in-out delay-50 hover:-translate-y-1">About Us</Link>
+                        {/* <Link to="/UserProfilePage" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg transition ease-in-out delay-50 hover:-translate-y-1">User Profile</Link> */}
+                        {/* <Link to="/RecruiterProfilePage" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg transition ease-in-out delay-50 hover:-translate-y-1">Recruiter Profile</Link> */}
 
                     </div>
                 </div>
 
-                <button className="signup">
+                {isLoggedIn ? (
+                        <Link to="/UserProfilePage" >
+                            <div className=" w-[40px] h-[40px] rounded-full shadow-inner transition ease-in-out delay-50 hover:-translate-y-1 hover:shadow-xl hover:scale-110 ">
+                                <img src={UserIcon} className=""/>
+                            </div>
+                        </Link>     
+                ):(
+                    <button className="signup">
+                        <Link to="/LoginPage">SignUp</Link>
+                        <img src={Paper} alt="Paper Airplane" className="button-img" />
+                    </button>
+                    )}
+
+                {/* <button >
                     {isLoggedIn ? (
                         <Link to="/UserProfilePage">Profile</Link>
                     ) : (
                         <Link to="/LoginPage">SignUp</Link>
                     )}
-                    <img src={Paper} alt="Paper Airplane" className="button-img" />
-                </button>
+                    
+                </button> */}
             </div>
         </div>  
     );

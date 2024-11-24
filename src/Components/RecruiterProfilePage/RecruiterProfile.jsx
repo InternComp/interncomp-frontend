@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import UserIcon from "../../assets/UserIcon.png";
+import ProfileIcon from "../../assets/ProfileIcon.png";
 import settingsIcon from "../../assets/settingsIcon.png";
 import saveButton from "../../assets/saveButton.png";
 import briefcaseIcon from "../../assets/briefcase.png";
