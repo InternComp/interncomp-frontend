@@ -148,3 +148,7 @@ width: flex;
   padding: 16px;
   background-color: white;
 }
+.review-box{
+  border: 2px solid #1f2937;
+  padding: 5px;
+}

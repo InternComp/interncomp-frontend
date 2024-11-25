@@ -63,7 +63,7 @@ const CompanyPage = () => {
   const [isReviewVisible, setReviewVisible] = useState(false);
   const [reviewContents, setReviews] = useState([]);
   const [newReview, setNewReview] = useState(""); // New state for the review text
-
+  const [newRating, setRating] = useState(""); // New state for review rating
   useEffect(() => {
     const fetchCompanyData = async () => {
       try {
@@ -123,6 +123,7 @@ const CompanyPage = () => {
         setReviews([...reviewContents, createdReview]);
         setNewReview(""); // Reset review input
         setReviewVisible(false); // Close review form
+        setRating("");
       } else {
         console.error("Error submitting review");
       }
@@ -167,9 +168,11 @@ const CompanyPage = () => {
         {reviewContents.length > 0 ? (
           reviewContents.map((review, index) => (
             <div key={index} className="review-item">
+              <div className = "review-box">
               <h3 className="review-title">{review.reviewer}</h3>
               <p className="review-content">{review.review}</p>
               <p className="review-rating">Rating: {review.rating}</p>
+            </div>
             </div>
           ))
         ) : (
@@ -230,6 +233,18 @@ const CompanyPage = () => {
                         value={newReview}
                         onChange={(e) => setNewReview(e.target.value)}
                       />
+                      <select
+                        className="input-text"
+                        value={newRating}
+                        onChange={(e) => setNewRating(e.target.value)}
+                      >
+                        <option value="" disabled>Select a rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
                       <button 
                         className="company-start-search"
                         onClick={async(event) =>{
