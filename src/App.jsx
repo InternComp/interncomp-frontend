@@ -5,10 +5,11 @@ import LoginPage from "./Components/LoginPage/LoginPage";
 import Home from "./Components/Home/Home";
 import CompaniesPage from "./Components/CompaniesPage/CompaniesPage";
 import WelcomeNewUserPage from "./Components/WelcomeNewUserPage/WelcomeNewUserPage";
+import UserProfilePage from './Components/UserProfilePage/UserProfilePage';
+import RecruiterProfile from './Components/RecruiterProfilePage/RecruiterProfile';
 import CompanyPage from './Components/CompanyPage/CompanyPage';
 import Jobs from './Components/JobPage/Jobs';
 import AboutUs from './Components/AboutUs/AboutUs';
-import UserProfilePage from './Components/UserProfilePage/UserProfilePage';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/Jobs" element={<Jobs />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="*" element={<Navigate replace to="/" />} />
+            {/* <Route path="/RecruiterProfilePage" element={<RecruiterProfile />} /> */}
           </Routes>
         </div>
         <Footer />
