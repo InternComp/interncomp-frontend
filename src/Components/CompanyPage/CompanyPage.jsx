@@ -181,13 +181,14 @@ const CompanyPage = () => {
         <div className="company-info-right w-2/5">
           <div className="company-buttons flex gap-4 mb-6">
             <a href={companyData.careerPages} className="button-primary">View Careers</a>
+            {/*
             <button className="button-primary">Company Reviews</button>
-            <button className="button-secondary">
+             <button className="button-secondary">
               <img src={Bookmark} alt="Bookmark" className="w-6 h-6" />
             </button>
             <button className="button-secondary">
               <img src={tab} alt="Tab" className="w-6 h-6" />
-            </button>
+            </button> */}
           </div>
 
           {/* About Company Section */}
