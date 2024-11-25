@@ -62,7 +62,9 @@ const CompanyPage = () => {
 
   const [isReviewVisible, setReviewVisible] = useState(false);
   const [reviewContents, setReviews] = useState([]);
+  const [salaryContents, setSalaries] = useState([]);
   const [newReview, setNewReview] = useState(""); // New state for the review text
+  const [newRating, setNewRating] = useState(0); // New state for the review rating
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -90,24 +92,44 @@ const CompanyPage = () => {
         console.error("Error fetching reviews", error);
       }
     };
+    const fetchSalaries= async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/companies/${id}`);
+        const data = await response.json();
+        console.log(data)
+        console.log(data.salaries)
+        setSalaries(data.salaries)
+        console.log(salaryContents.wtNumber)
+        console.log(salaryContents.salaryInfo)
+      } catch (error) {
+        console.error("Error fetching reviews", error);
+      }
+    };
 
     fetchCompanyData();
     fetchReviews();
+    fetchSalaries();
   }, [id]);
 
   const handleReviewToggle = () => {
     setReviewVisible((prev) => !prev);
   };
+  const handleRatingClick = (rating) => {
+    setNewRating((prevRating) => (prevRating === rating ? 0 : rating));
+  };
 
   const handleSubmitReview = async () => {
-    if(newReview!=""){
+    if (!newReview || newRating === 0) {
+      alert("Please provide both a review and a rating.");
+      return;
+    }
+
     const reviewData = {
       reviewerId: userId,
-      rating: "FIVE",
+      rating: newRating,
       review_text: newReview,
-      companyId: id, //company id 
+      companyId: id,
     };
-    console.log(reviewData)
 
     try {
       const response = await fetch(`http://localhost:3000/companies/${id}/reviews`, {
@@ -120,20 +142,21 @@ const CompanyPage = () => {
 
       if (response.ok) {
         const createdReview = await response.json();
-        setReviews([...reviewContents, createdReview]);
-        setNewReview(""); // Reset review input
-        setReviewVisible(false); // Close review form
-      } else {
+        setReviewContents([...reviewContents, createdReview]);
+        setNewReview("");
+        setNewRating(0);
+        setReviewVisible(false);
+      }else {
         console.error("Error submitting review");
       }
     } catch (error) {
       console.error("Error submitting review", error);
     }
   }
-  };
+  ;
 
   return (
-    <div className="company-container flex flex-col gap-10 px-6">
+    <div className="company-container flex flex-col gap-10 px-6 pb-4">
       {/* Banner Section */}
       <div className="relative">
         <img src={companyData.banner} alt="Company background" className="w-full h-auto object-contain" />
@@ -157,26 +180,59 @@ const CompanyPage = () => {
             <p className="mt-2">{companyData.culture}</p>
           </div>
           <div className="mb-6">
-            <h2 className="text-2xl font-bold">Company Benefits</h2>
-            <p className="mt-2">{companyData.benefits}</p>
-          </div>
-        
-              {/* User Reviews */}
-      <div className="user-reviews">
-        <h2 className="review-header">Company Reviews</h2>
-        {reviewContents.length > 0 ? (
-          reviewContents.map((review, index) => (
-            <div key={index} className="review-item">
-              <h3 className="review-title">{review.reviewer}</h3>
-              <p className="review-content">{review.review}</p>
-              <p className="review-rating">Rating: {review.rating}</p>
+          <h2 className="text-2xl font-bold">Company Benefits</h2>
+          <p className="mt-2">{companyData.benefits}</p>
+        </div>
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold">Salary Info</h2>
+        </div>
+        <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-green-100 dark:border-gray-700">
+          {salaryContents.map((salary, index) => (
+            <div key={index} className="mb-3 text-xl font-bold tracking-wide leading-relaxed text-black dark:text-indigo-800">
+              <span className="salary-label">
+                Work Term: {salary.wtNumber} &nbsp;&nbsp;&nbsp;&nbsp; Salary: ${salary.salaryInfo}/hr
+              </span>
             </div>
-          ))
-        ) : (
-          <p>No reviews available.</p>
-        )}
+          ))}
+        </div>
+
+
+
+
+      
+
+
+{/* User Reviews */}
+<div>
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold p-4">Company Reviews</h2>
       </div>
-      </div>
+  </div>
+<div className="user-reviews">
+              <div className="scrollable-reviews">
+                {reviewContents.length > 0 ? (
+                  reviewContents.map((review, index) => (
+                    <div key={index} className="review-item">
+                          <div className="review-stars">
+                      {"★".repeat(review.rating).padEnd(5, "☆")}
+                    </div>
+
+                    <div className="review-date">
+                    {new Date(review.createdAt).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </div>
+                    <p className="review-content">{review.review}</p>
+              </div>
+                  ))
+                ) : (
+                  <p>No reviews available.</p>
+                )}
+              </div>
+            </div>
+        </div>
         {/* Right column */}
         <div className="company-info-right w-2/5">
           <div className="company-buttons flex gap-4 mb-6">
@@ -221,15 +277,25 @@ const CompanyPage = () => {
         {isLoggedIn && (
                   <div>
                   <button className="review-button" onClick={handleReviewToggle}>Write Review About Company</button>
-                  {isReviewVisible && (
-                    <div className="about-company">
-                      <h2 className='review-header'>Write Your Review</h2>
-                      <textarea 
-                        className='input-text' 
-                        placeholder="Enter your review of the company here."
-                        value={newReview}
-                        onChange={(e) => setNewReview(e.target.value)}
-                      />
+          {isReviewVisible && (
+            <div className="review-form">
+              <h2>Write Your Review</h2>
+              <div className="stars-input">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span
+                    key={star}
+                    className={`star ${newRating >= star ? "selected" : ""}`}
+                    onClick={() => handleRatingClick(star)}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+              <textarea
+                placeholder="Enter your review of the company here."
+                value={newReview}
+                onChange={(e) => setNewReview(e.target.value)}
+              />
                       <button 
                         className="company-start-search"
                         onClick={async(event) =>{
@@ -252,6 +318,5 @@ const CompanyPage = () => {
 
     </div>
   );
-};
-
+                      }
 export default CompanyPage;
