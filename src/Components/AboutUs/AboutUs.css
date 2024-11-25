@@ -1,0 +1,7 @@
+.company-info-container {
+    gap: 20px;
+  }
+
+  .company-info-left {
+    flex: 1;
+  }

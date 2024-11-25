@@ -4,12 +4,17 @@ import settingsIcon from "../../assets/settingsIcon.png";
 import saveButton from "../../assets/saveButton.png";
 import briefcaseIcon from "../../assets/briefcase.png";
 import reviewsIcon from "../../assets/review.png";
+import LogoutIcon from "../../assets/logout.png";
+import ConfirmationModal from "./ConfirmationModal";
 
 
 const UserProfilePage = () => {
 
     const [loggedUsername, setLoggedUsername] = useState("");
     const [user, setUser] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
     const [userId, setUserId] = useState(null);
     const [loggedEmail, setLoggedEmail] = useState("");
 
@@ -19,7 +24,7 @@ const UserProfilePage = () => {
             try {
                 const response = await fetch('http://localhost:3000/auth/protected', {
                     method: 'GET',
-                    credentials: 'include', // Assuming cookies need to be included with the request
+                    credentials: 'include', 
                 });
                 if (response.ok) {
                     const data = await response.json();
@@ -124,16 +129,36 @@ const UserProfilePage = () => {
         }
     }
 
+    const handleLogout = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/logout', {
+                method: 'GET', // Include cookies for the request
+                credentials: 'include'
+            });
+            if (response.ok) {
+                console.log("response ok")
+                window.location.href='/'
+            } else {
+                throw new Error("Logout failed");
+            }
+        } catch (error) {
+            console.error("Error logging out:", error);
+        }
+    };
+
+
     return (
-        <div className="grid grid-cols-12 grid-flow-row bg-[#F3F3F3] h-[750px] ">
-            <div className="grid grid-rows-9 pt-5 bg-white w-[80px] justify-items-center h-[750px]  col-start-1 col-span-1 rounded-r-lg ">{/* left vertical nav*/}
-                <div className="row-start-1 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={UserIcon} /></div>
+        
+            <div className="grid grid-cols-12 grid-flow-row bg-[#F3F3F3] h-[750px] ">
+            {/*left vertical nav*/}{/* 
+            <div className="grid grid-rows-9 pt-5 bg-white w-[80px] justify-items-center h-[750px]  col-start-1 col-span-1 rounded-r-lg "> 
+                <div className="row-start-1 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={ProfileIcon} /></div>
                 <div className="row-start-2 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={briefcaseIcon} /></div>
                 <div className="row-start-3 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={reviewsIcon} /></div>
                 <div className="row-start-4 w-[80px] h-[80px] hover:bg-blue-100 p-5"><img src={settingsIcon} /></div>
 
             </div>
-
+            */}
             <div className="grid grid-rows-6 col-start-2 col-span-11 pb-10 pr-5 "> {/* right side content*/}
                 <div className="rounded-3xl pt-5 text-2xl">Welcome, {formData.name || " User"}</div> {/* top nav*/}
 
@@ -241,7 +266,25 @@ const UserProfilePage = () => {
                                 </div>)}
                         </label>
                     </div>
+                    <div className="grid grid-cols-3  pt-5 place-items-end">
+                        <button  class=" flex col-start-3 text-black hover:text-white  rounded-xl hover:bg-slate-400  bg-slate-300 h-12 w-28 p-3 transition ease-in-out delay-50 hover:-translate-y-1"
+                                    type="button"
+                                    onClick={openModal}> 
+                            <img src={LogoutIcon} className="h-5 pr-2 "/> Log out 
 
+                        </button>
+                        <ConfirmationModal
+                                isOpen={isModalOpen}
+                                title="Confirm Logout"
+                                message="Are you sure you want to log out?"
+                                onConfirm={() => {
+                                    closeModal(); // Close the modal
+                                    handleLogout(); // Call the logout function
+                                }}
+                                onCancel={closeModal} // Close the modal if the user cancels
+                            />
+                    
+                    </div>
 
 
 

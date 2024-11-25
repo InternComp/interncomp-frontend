@@ -39,7 +39,7 @@ const Header = ({ setActiveComponent }) => {
                         <Link to="/" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">Home</Link>
                         <Link to="/Jobs" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">Jobs</Link>
                         <Link to="/Companies" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">Companies</Link>
-                        <Link to="/ComingSoon" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">About Us</Link>
+                        <Link to="/AboutUs" className="menuList text-[#6f6f6f] hover:text-blue-300 text-lg">About Us</Link>
                     </div>
                 </div>
 
