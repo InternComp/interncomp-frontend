@@ -1,21 +1,21 @@
 .full-page {
-  width: 100vw; /* Full viewport width */
-  height: calc(100vw * 9 / 16); /* Maintain 16:9 aspect ratio */
+  width: 100%; /* Full viewport width */
+  height: auto; /* Maintain 16:9 aspect ratio */
   overflow: hidden; /* Hide overflowing content */
 }
 
 /* For smaller screens (e.g., mobile devices) */
 @media (max-width: 768px) {
   .full-page {
-    width: 100vw; /* Still 100% viewport width */
-    height: calc(100vw * 3 / 4); /* Switch to 4:3 aspect ratio */
+    width: 100%; /* Still 100% viewport width */
+    height: 100%; /* Switch to 4:3 aspect ratio */
   }
 }
 
 /* For very small screens (e.g., small mobile devices) */
 @media (max-width: 480px) {
   .full-page {
-    width: 100vw; /* Full width */
-    height: calc(100vw * 4 / 3); /* Even taller for readability */
+    width: 100%; /* Full width */
+    height: 100%; /* Even taller for readability */
   }
 }

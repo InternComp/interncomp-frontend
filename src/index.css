@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+}
+
 :root{
   font-family: 'Poppins', sans-serif;
 }
@@ -12,11 +18,6 @@ body{
   background-color: white;
 }
 
-li{
-  list-style: none;
-  cursor: pointer;
-  position: relative;
-}
 
 .menu-container {
   display: flex;
@@ -33,15 +34,4 @@ li{
 .menuList {
   cursor: pointer;
   position: relative;
-}
-
-
-li:hover::before{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #93c5fd;
-  right: 0;
-  bottom: -10px;
 }

@@ -49,6 +49,18 @@ const Jobs = () => {
     setSelectedJob(null);
   };
 
+  // Calculate days since the job was posted
+  const getDaysSincePosted = (postedDate) => {
+    const currentDate = new Date();
+    const postDate = new Date(postedDate);
+    const differenceInTime = currentDate - postDate; // Difference in milliseconds
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24)); // Convert to days
+
+    if (differenceInDays === 0) return 'Posted today';
+    if (differenceInDays === 1) return 'Posted 1 day ago';
+    return `Posted ${differenceInDays} days ago`;
+  };
+
   // Define the handleSearch function to filter jobs
   const handleSearch = ({ jobTitle, location }) => {
     const filtered = jobs.filter((job) =>
@@ -70,6 +82,19 @@ const Jobs = () => {
             <button onClick={handleCloseDetail} className="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
               <FiX size={24} />
             </button>
+
+            {/* Company Image and Name */}
+            <div className="flex items-center mb-6">
+              <img
+                src={selectedJob.companyImage}
+                alt={`${selectedJob.company} logo`}
+                className="w-16 h-16 rounded-full mr-4"
+              />
+              <div>
+                <h3 className="text-lg font-semibold">{selectedJob.companyName}</h3>
+              </div>
+            </div>
+            
             <h2 className="text-xl font-bold">{selectedJob.title}</h2>
             <p className="text-gray-500">{selectedJob.company} - {selectedJob.location}</p>
             {/* Section: Description */}
@@ -135,7 +160,7 @@ const Jobs = () => {
 
 
             {/* Section: Apply Now */}
-            <a href={selectedJob.jobLink} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+            <a href={selectedJob.jobLink} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 px-4 py-2 bg-gray-800 text-white rounded">
               Apply Now
             </a>
           </div>
@@ -143,48 +168,60 @@ const Jobs = () => {
       )}
 
       {/* Job Cards Grid */}
-      <div className="flex-auto mx-auto px-20 py-8">
-        <div className="jobs-grid grid grid-cols-4 gap-4">
+      <div className="flex-auto mx-auto px-60 py-12">
+        <div
+          className={`jobs-grid grid ${
+            currentJobs.length < 4
+              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center"
+              : "grid-cols-4"
+          } gap-4`}
+        >
           {currentJobs.map((job) => (
             <div
               key={job.id}
               className="group singleJob w-[350px] p-[20px] bg-white rounded-[10px] hover:bg-blue-300 shadow-lg shadow-gray-400/70 hover:shadow-lg cursor-pointer"
               onClick={() => handleJobClick(job)}
             >
-              <img src={job.companyImage} alt={`${job.company} logo`} className="w-12 h-12 mb-4" />
+              {/* Flexbox container for company name and logo */}
+              <div className="flex items-center gap-4">
+                <img src={job.companyImage} alt={`${job.company} logo`} className="w-12 h-12 mb-6" />
+                <h6 className="text-[16px] font-semibold text-textColor">{job.companyName}</h6>
+              </div>
+
               <span className="flex justify-between items-center gap-4">
                 <h1 className="text-[16px] font-semibold text-textColor group-hover:text-white">{job.title}</h1>
               </span>
+
               <h6 className="text-[#ccc]">{job.company} - {job.location}</h6>
               <div className="tags flex gap-2 mt-2">
                 <span className="tag bg-blue-100 text-blue-500 px-3 py-1 rounded-md">{job.employmentType}</span>
                 <span className="tag bg-blue-100 text-blue-500 px-3 py-1 rounded-md">{job.workType}</span>
                 <span className="tag bg-blue-100 text-blue-500 px-3 py-1 rounded-md">{job.internType}</span>
               </div>
-              <p className="text-[13px] text-[#95959] pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white">
-                {}
-              </p>
               <div className="flex justify-between items-center mt-4">
-                <span className="flex items-center text-[#ccc] text-sm gap-2">
-                  <BiTimeFive /> {job.time}
+                <span className="flex items-center text-[#64748b] text-sm gap-2">
+                  <BiTimeFive /> {getDaysSincePosted(job.postedDate)}
                 </span>
-                <span className="text-sm text-gray-600">{job.applicants} Applicants</span>
+               {/* <span className="text-sm text-gray-600">{job.applicants} Applicants</span>*/}
               </div>
             </div>
           ))}
         </div>
       </div>
 
+
       {/* Pagination Controls */}
-      <div className="pagination flex justify-center mt-8">
-        <button onClick={handlePrevPage} disabled={currentPage === 1} className="px-4 py-2 mx-2 bg-gray-200 rounded hover:bg-gray-300">
-          Previous
-        </button>
-        <span className="px-4 py-2">{currentPage} / {totalPages}</span>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages} className="px-4 py-2 mx-2 bg-gray-200 rounded hover:bg-gray-300">
-          Next
-        </button>
-      </div>
+      {!selectedJob && (
+        <div className="pagination flex justify-center mt-8">
+          <button onClick={handlePrevPage} disabled={currentPage === 1} className="px-4 py-2 mx-2 bg-gray-200 rounded hover:bg-gray-300">
+            Previous
+          </button>
+          <span className="px-4 py-2">{currentPage} / {totalPages}</span>
+          <button onClick={handleNextPage} disabled={currentPage === totalPages} className="px-4 py-2 mx-2 bg-gray-200 rounded hover:bg-gray-300">
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };

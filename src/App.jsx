@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import LoginPage from "./Components/LoginPage/LoginPage";
@@ -29,10 +29,21 @@ const App = () => {
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </div>
-        <Footer />
+        <ConditionalFooter />
       </Router>
     </div>
   );
 }
+
+const ConditionalFooter = () => {
+  const location = useLocation();
+  
+  // Exclude the footer on the /AddJobs route
+  if (location.pathname === '/Jobs') {
+    return null;
+  }
+  
+  return <Footer />;
+};
 
 export default App;

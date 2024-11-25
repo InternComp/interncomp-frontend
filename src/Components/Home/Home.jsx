@@ -1,6 +1,6 @@
 // Importing necessary hooks and assets
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import spotify from "../../assets/spotify.svg";
 import slack from "../../assets/slack.svg";
@@ -13,6 +13,11 @@ import './Home.css';
 
 // Home component function definition
 const Home = () => {
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleSearchJobsClick = () => {
+    navigate("/Jobs"); // Navigate to the Add Jobs page
+  };
 return (
   <div>
     {/* Section for the banner image */}
@@ -22,14 +27,28 @@ return (
 
     {/* Scrolling logos section */}
     <div className="w-full bg-gray-800 py-4">
-        <div className="flex justify-around items-center max-w-[300%] animate-scroll-logos space-x-8">
+      <div className="flex overflow-hidden group">
+        {/* Single container with duplicate logos */}
+        <div className="flex items-center animate-loop-scroll space-x-48 w-[calc(100vw * 2)] group-hover:paused">
           <img src={spotify} alt="Spotify" className="h-[40px]" />
           <img src={slack} alt="Slack" className="h-[40px]" />
           <img src={adobe} alt="Adobe" className="h-[40px]" />
           <img src={asana} alt="Asana" className="h-[40px]" />
           <img src={linear} alt="Linear" className="h-[40px]" />
+          {/* Duplicate for seamless loop */}
+          <img src={spotify} alt="Spotify" className="h-[40px]" />
+          <img src={slack} alt="Slack" className="h-[40px]" />
+          <img src={adobe} alt="Adobe" className="h-[40px]" />
+          <img src={asana} alt="Asana" className="h-[40px]" />
+          <img src={linear} alt="Linear" className="h-[40px]" />
+
+          <img src={spotify} alt="Spotify" className="h-[40px]" />
+          <img src={slack} alt="Slack" className="h-[40px]" />
+          <img src={adobe} alt="Adobe" className="h-[40px]" />
         </div>
+      </div>
     </div>
+
 
     {/* Section with a motivational message and image */}
     <div className="flex items-center">
@@ -45,10 +64,11 @@ return (
           </p>
 
           {/* Search Jobs button */}
-          <br></br>
-          <div>
-          <Link to="/Jobs" className="bg-gray-800 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded mt-4">Search Jobs</Link>
-          </div>
+          <button 
+            onClick={handleSearchJobsClick}
+            className="bg-gray-800 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded mt-4">
+            Search Jobs
+          </button>
       </div>
     </div>
 
