@@ -214,7 +214,8 @@ const CompanyPage = () => {
             <p><strong>Phone:</strong> {companyData.phone}</p>
             <p><strong>Email:</strong> {companyData.recruiterEmails}</p>
             <p><strong>Location:</strong> {companyData.location}</p>
-            <p><strong>LinkedIn:</strong> {companyData.linkedin}</p>
+            <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href={companyData.linkedin}>
+              <p><strong>LinkedIn:</strong> {companyData.linkedin}</p></a>
           </div>
         {/* using conditional rendering we make sure that the write a review button only appears once the user is logged in */}
         {isLoggedIn && (
