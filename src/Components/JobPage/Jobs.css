@@ -1,0 +1,17 @@
+.tag {
+  display: inline-flex; /* Display as inline-flex */
+  font-size: 0.875rem; /* 14px */
+  background-color: #f0f4ff; /* Light blue background */
+  color: #2563eb; /* Blue text color */
+  padding: 0.5rem 1rem; /* Padding for visual spacing */
+  border-radius: 0.5rem; /* Rounded corners */
+  min-width: 100px; /* Fixed width for uniform size */
+  text-align: center; /* Center align text */
+  justify-content: center; /* Center align content */
+  align-items: center; /* Center align items */
+}
+
+.job-detail-modal .bg-white {
+  max-height: 70vh; /* Limits the height of the modal to 80% of the viewport */
+  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+}

@@ -8,6 +8,9 @@ import Google from '../Assets/Icons/Google.png'
 
 
 const LoginPage = () => {
+  const handleGoogleSignIn = () => {
+    window.location.href = "http://localhost:3000/auth/google/";
+  };
 return (
     <div className="container" style={{paddingBottom:'200px'}}>
   
@@ -25,11 +28,11 @@ return (
         <span> and acknowledge our</span>
         <button className="text-button"> Privacy Policy</button>
         </div>
-        <button className="sign-in">
+
+        <button className="sign-in" onClick={handleGoogleSignIn}>
           
-          <img src={Google} alt="Google Logo" className="button-img" /><a href="http://localhost:3000/auth/google/">
+          <img src={Google} alt="Google Logo" className="button-img" />
           Sign in with Google
-          </a>
 
         </button>
   

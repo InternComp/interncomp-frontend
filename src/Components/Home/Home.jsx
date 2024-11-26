@@ -1,5 +1,6 @@
 // Importing necessary hooks and assets
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import React from "react";
 import spotify from "../../assets/spotify.svg";
 import slack from "../../assets/slack.svg";
@@ -44,9 +45,10 @@ return (
           </p>
 
           {/* Search Jobs button */}
-          <button className="bg-gray-800 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded mt-4">
-            Search Jobs
-          </button>
+          <br></br>
+          <div>
+          <Link to="/Jobs" className="bg-gray-800 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded mt-4">Search Jobs</Link>
+          </div>
       </div>
     </div>
 
