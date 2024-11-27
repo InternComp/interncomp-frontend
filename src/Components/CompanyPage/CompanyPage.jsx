@@ -186,9 +186,9 @@ const CompanyPage = () => {
         <div className="mb-6">
           <h2 className="text-2xl font-bold">Salary Info</h2>
         </div>
-        <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-green-100 dark:border-gray-700">
+        <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700">
           {salaryContents.map((salary, index) => (
-            <div key={index} className="mb-3 text-xl font-bold tracking-wide leading-relaxed text-black dark:text-indigo-800">
+            <div key={index} className="mb-3 text-xl tracking-wide leading-relaxed text-black dark:text-indigo-800">
               <span className="salary-label">
                 Work Term: {salary.wtNumber} &nbsp;&nbsp;&nbsp;&nbsp; Salary: ${salary.salaryInfo}/hr
               </span>
@@ -209,7 +209,7 @@ const CompanyPage = () => {
       </div>
   </div>
 <div className="user-reviews">
-              <div className="scrollable-reviews">
+              <div className="scrollable-reviews h-100 bg-gray-100">
                 {reviewContents.length > 0 ? (
                   reviewContents.map((review, index) => (
                     <div key={index} className="review-item">

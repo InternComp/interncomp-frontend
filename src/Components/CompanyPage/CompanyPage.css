@@ -135,13 +135,13 @@ width: flex;
 }
 
 .scrollable-reviews {
-  max-height: 200px; /* Adjust this value to fit your design */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding-right: 10px; /* Add padding for scrollbar visibility */
+  max-height: 2000px; 
+  overflow-y: auto; 
+  padding-right: 10px;
 }
 
 .scrollable-reviews::-webkit-scrollbar {
-  width: 8px; /* Customize scrollbar width */
+  width: 8px; 
 }
 
 .scrollable-reviews::-webkit-scrollbar-thumb {

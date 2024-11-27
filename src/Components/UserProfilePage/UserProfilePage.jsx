@@ -77,7 +77,6 @@ const UserProfilePage = () => {
         location: "",
         institution: "",
         gender: "X",
-        email:"",
     })
     useEffect(() => {
         if (user) {
@@ -88,7 +87,6 @@ const UserProfilePage = () => {
                 location: user.location || "",
                 institution: user.institution || "",
                 gender: user.gender || "X",
-                email: user.email || "",
             });
         }
     }, [user]);
