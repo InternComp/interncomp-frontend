@@ -1,4 +1,4 @@
-# interncomp.ca
+# [interncomp.ca](https://interncomp.ca/)
 
 # React + Vite
 
