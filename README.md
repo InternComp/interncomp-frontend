@@ -1,4 +1,4 @@
-#interncomp.ca
+# interncomp.ca
 
 # React + Vite
 
